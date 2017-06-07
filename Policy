@@ -1,0 +1,12 @@
+Privacy Policy
+
+Me, Enrico D'Ortenzio, built the Gallery app as an Open Source app. This APP is provided by Me at no cost and is intended for use as is: a Simple Gallery app.
+
+This page is used to inform Users regarding my policies with the use of android.permission.CAMERA if anyone decided to use my App.
+
+android.permission.CAMERA permission will be exclusively used to ALLOW USER TO OPEN THE CAMERA/VIDEO APP from within the Gallery App by clicking a Floating Action Button. The permission won't be used to collect or send/share data to third parties.
+Moreover, users using Android version >= Marshmallow will be allowed to allow or deny this permission (but camera won't work).
+
+Best regards,
+
+Enrico D'Ortenzio
