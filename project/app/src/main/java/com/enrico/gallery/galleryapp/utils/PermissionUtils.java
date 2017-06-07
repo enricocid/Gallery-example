@@ -8,10 +8,31 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
+import android.text.Html;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.enrico.gallery.galleryapp.R;
 
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
+
 public class PermissionUtils {
+
+    @SuppressWarnings("deprecation")
+    private static Spanned Linkify(String policy) {
+
+        Spanned result;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            result = Html.fromHtml(policy, Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            result = Html.fromHtml(policy);
+        }
+        return result;
+    }
 
     public static void rationaleDialog(final Activity activity, String title, String rationale, final int requestCode, final Intent intent) {
 
@@ -20,8 +41,32 @@ public class PermissionUtils {
 
         alertDialogBuilder.setTitle(title);
 
+        if (requestCode == 1) {
+
+            String policyLink = "<a href=\"https://github.com/enricocid/Gallery/blob/master/Policy\">Policy link</a>";
+
+            LayoutInflater inflater = (LayoutInflater) activity.getSystemService(LAYOUT_INFLATER_SERVICE);
+            final ViewGroup nullParent = null;
+
+            View layout = inflater.inflate(R.layout.camera_permission_dialog, nullParent);
+
+            TextView rationaleText = (TextView) layout.findViewById(R.id.rationale);
+
+            rationaleText.setText(rationale);
+
+            TextView policyText = (TextView) layout.findViewById(R.id.policy);
+
+            policyText.setMovementMethod(LinkMovementMethod.getInstance());
+
+            policyText.setText(Linkify(policyLink));
+            alertDialogBuilder.setView(layout);
+
+
+        } else {
+            alertDialogBuilder.setMessage(rationale);
+        }
+
         alertDialogBuilder
-                .setMessage(rationale)
                 .setCancelable(false)
 
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
