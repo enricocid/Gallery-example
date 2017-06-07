@@ -1,0 +1,11 @@
+<resources>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="floating_action_button_spacing">16dp</dimen>
+
+    <dimen name="toolbar_h_padding">4dp</dimen>
+
+    <dimen name="first_keyline">16dp</dimen>
+</resources>

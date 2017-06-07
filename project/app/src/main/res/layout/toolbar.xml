@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:elevation="6dp"
+    android:minHeight="?actionBarSize"
+    app:popupTheme="?attr/popupTheme"
+    tools:ignore="NewApi">
+
+    <Spinner
+        android:id="@+id/grid_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:overlapAnchor="false" />
+
+</android.support.v7.widget.Toolbar>

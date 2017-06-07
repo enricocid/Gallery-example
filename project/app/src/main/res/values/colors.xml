@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transWhite">#40ffffff</color>
+    <color name="transBlack">#40000000</color>
+    <color name="transMediumWhite">#90ffffff</color>
+
+    <!-- Material Color Palette -->
+    <color name="material_gray_700">#616161</color>
+    <color name="material_gray_800">#424242</color>
+    <color name="material_red_700">#D32F2F</color>
+    <color name="material_blue_700">#0288D1</color>
+
+</resources>

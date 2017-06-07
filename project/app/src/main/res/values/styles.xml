@@ -1,0 +1,58 @@
+<resources>
+
+    <style name="Base.Theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">?attr/colorPrimaryDark</item>
+        <item name="ripple_color">@color/transBlack</item>
+        <item name="crop_icon">@drawable/ic_crop_rotate_black</item>
+        <item name="share_icon">@drawable/ic_share_black</item>
+        <item name="delete_icon">@drawable/ic_delete_black</item>
+        <item name="theme_icon">@drawable/ic_weather_sunset_down_black</item>
+        <item name="camera_icon">@drawable/ic_camera_black</item>
+        <item name="video_icon">@drawable/ic_video_black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
+        <item name="toolbarStyle">@style/Custom.Widget.Toolbar</item>
+        <item name="toolbarNavigationButtonStyle">@style/Custom.Widget.Toolbar.Button.Navigation
+        </item>
+
+    </style>
+
+    <style name="Base.Theme.Dark" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorAccent">?attr/colorPrimaryDark</item>
+        <item name="ripple_color">@color/transWhite</item>
+        <item name="crop_icon">@drawable/ic_crop_rotate_white</item>
+        <item name="share_icon">@drawable/ic_share_white</item>
+        <item name="delete_icon">@drawable/ic_delete_white</item>
+        <item name="theme_icon">@drawable/ic_weather_sunset_up_white</item>
+        <item name="camera_icon">@drawable/ic_camera_white</item>
+        <item name="video_icon">@drawable/ic_video_white</item>
+        <item name="play_icon">@drawable/ic_play_white</item>
+        <item name="toolbarStyle">@style/Custom.Widget.Toolbar</item>
+        <item name="toolbarNavigationButtonStyle">@style/Custom.Widget.Toolbar.Button.Navigation
+        </item>
+
+    </style>
+
+    <style name="Base.Theme.Action.Bar" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">?attr/colorPrimaryDark</item>
+
+    </style>
+
+    <style name="Custom.Widget.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="maxButtonHeight">48dp</item>
+        <item name="android:paddingLeft">@dimen/toolbar_h_padding</item>
+        <item name="android:paddingRight">@dimen/toolbar_h_padding</item>
+        <item name="contentInsetStart">@dimen/first_keyline</item>
+
+    </style>
+
+    <style name="Custom.Widget.Toolbar.Button.Navigation" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:minWidth">48dp</item>
+
+    </style>
+
+    <style name="Custom.Widget.ActionButton.Overflow" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+
+    </style>
+</resources>

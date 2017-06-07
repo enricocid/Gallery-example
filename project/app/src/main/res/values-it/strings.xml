@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Galleria</string>
+    <string name="switch_theme">Giorno o notte?</string>
+
+    <string name="two">2 colonne</string>
+    <string name="three">3 colonne</string>
+    <string name="four">4  colonne</string>
+
+    <string name="size">Dimensione:&#160;</string>
+    <string name="height">Altezza:&#160;</string>
+    <string name="width">Larghezza:&#160;</string>
+    <string name="name">Nome:&#160;</string>
+    <string name="type">Tipo file:&#160;</string>
+    <string name="path">Percorso:&#160;</string>
+    <string name="lastMod">Ultima modifica:&#160;</string>
+    <string name="videoType">Video/</string>
+    <string name="imageType">Immagine/</string>
+
+    <string name="notFound">File non trovato (╯°□°）╯︵ ┻━┻. Ho dimenticato il percorso della SD Card!</string>
+    <string name="uSure">Sicuro? (Ծ‸ Ծ)</string>
+    <string name="uSureContent">Sicuro vuoi cancellare&#160;</string>
+    <string name="questionMark">&#160;?</string>
+    <string name="delete">Cancella</string>
+    <string name="sdcard">Accesso SD Card</string>
+    <string name="sdcardContent">Il tuo dispositivo ha una versione di Android 5.0+, per modificare i files sulla SD Card per favore indicaci il suo percorso nella prossima schermata ᕙ༼ຈل͜ຈ༽ᕗ</string>
+    <string name="success">Percorso SD card impostato con successo. Ora puoi cancellare i file (⌐■_■)</string>
+    <string name="cameraContent">Questo permesso è necessario per aprire la camera ಠ_ಠ</string>
+    <string name="writeReadContent">Questo permesso è necessario se vuoi vedere i tuoi &amp;#$# selfie qui ◔_◔</string>
+    <string name="saved">&#160;salvata (｡◕‿◕｡)</string>
+    <string name="shareWith">Condividi usando&#8230;</string>
+
+    <string name="setAs">Imposta come wallpaper</string>
+</resources>

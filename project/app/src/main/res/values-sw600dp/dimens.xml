@@ -1,0 +1,6 @@
+<resources>
+
+    <dimen name="first_keyline">24dp</dimen>
+    <dimen name="toolbar_h_padding">12dp</dimen>
+
+</resources>

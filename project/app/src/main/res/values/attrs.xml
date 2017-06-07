@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="ripple_color" format="color" />
+
+    <attr name="crop_icon" format="reference" />
+    <attr name="share_icon" format="reference" />
+    <attr name="delete_icon" format="reference" />
+
+    <attr name="theme_icon" format="reference" />
+    <attr name="camera_icon" format="reference" />
+    <attr name="video_icon" format="reference" />
+    <attr name="play_icon" format="reference" />
+
+</resources>

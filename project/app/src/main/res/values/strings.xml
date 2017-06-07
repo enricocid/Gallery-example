@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Gallery</string>
+    <string name="switch_theme">Morning or night?</string>
+
+    <string name="two">2 columns</string>
+    <string name="three">3 columns</string>
+    <string name="four">4 columns</string>
+
+    <string name="notFound">File not found (╯°□°）╯︵ ┻━┻. I forgot the SD Card path!</string>
+    <string name="uSure">U sure? (Ծ‸ Ծ)</string>
+    <string name="uSureContent">U sure u want to delete&#160;</string>
+    <string name="questionMark">&#160;?</string>
+    <string name="delete">Delete</string>
+
+    <string name="sdcard">SD Card access</string>
+    <string name="sdcardContent">Your device is running Android 5.0+, to edit files on external SD Card please tell us the external SD Card path on the phone in the next step ᕙ༼ຈل͜ຈ༽ᕗ</string>
+    <string name="success">Successfully set SD Card path. Now you can delete files (⌐■_■)</string>
+    <string name="cameraContent">This permission is needed if You want to open camera ಠ_ಠ</string>
+    <string name="rationale_camera" translatable="false">(ಥ﹏ಥ)</string>
+    <string name="rationale_read" translatable="false">щ（ﾟДﾟщ)</string>
+    <string name="writeReadContent">This permission is needed if You want to see Your &amp;#$# selfie here ◔_◔</string>
+
+    <string name="saved">&#160;saved (｡◕‿◕｡)</string>
+
+    <string name="shareWith">Share using&#8230;</string>
+
+    <string name="size">Size:&#160;</string>
+    <string name="height">Height:&#160;</string>
+    <string name="width">Width:&#160;</string>
+    <string name="name">Filename:&#160;</string>
+    <string name="type">File type:&#160;</string>
+    <string name="path">Path:&#160;</string>
+    <string name="lastMod">Last modified:&#160;</string>
+
+    <string name="videoType">Video/</string>
+    <string name="imageType">Image/</string>
+
+    <string name="B" translatable="false">B</string>
+    <string name="KB" translatable="false">KB&#160;</string>
+    <string name="MB" translatable="false">MB&#160;</string>
+    <string name="GB" translatable="false">GB&#160;</string>
+
+    <string name="parenthesisR" translatable="false">)</string>
+    <string name="parenthesisL" translatable="false">&#160;(</string>
+
+    <string name="setAs">Set as wallpaper</string>
+
+</resources>
