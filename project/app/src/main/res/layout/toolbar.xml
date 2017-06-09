@@ -9,13 +9,4 @@
     android:elevation="6dp"
     android:minHeight="?actionBarSize"
     app:popupTheme="?attr/popupTheme"
-    tools:ignore="NewApi">
-
-    <Spinner
-        android:id="@+id/grid_options"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:overlapAnchor="false" />
-
-</android.support.v7.widget.Toolbar>
+    tools:ignore="NewApi"/>

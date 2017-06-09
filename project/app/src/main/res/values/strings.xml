@@ -1,10 +1,23 @@
 <resources>
     <string name="app_name">Gallery</string>
-    <string name="switch_theme">Morning or night?</string>
+    <string name="settings">Options</string>
 
+    <!-- Grid options -->
+    <string name="pref_grid_title">Columns number</string>
+    <string name="gridsum">Change the album\'s number of columns</string>
+    <string name="pref_grid" translatable="false">pref_grid</string>
+    <string name="pref_grid_list" translatable="false">pref_grid_list</string>
     <string name="two">2 columns</string>
     <string name="three">3 columns</string>
     <string name="four">4 columns</string>
+
+    <!-- Theme options -->
+    <string name="pref_theme_title">App theme</string>
+    <string name="themesum">Morning or night?</string>
+    <string name="pref_theme" translatable="false">pref_theme</string>
+    <string name="pref_theme_list" translatable="false">pref_theme_list</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
 
     <string name="notFound">File not found (╯°□°）╯︵ ┻━┻. I forgot the SD Card path!</string>
     <string name="uSure">U sure? (Ծ‸ Ծ)</string>

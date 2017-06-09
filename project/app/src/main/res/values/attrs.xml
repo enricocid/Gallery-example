@@ -7,7 +7,7 @@
     <attr name="share_icon" format="reference" />
     <attr name="delete_icon" format="reference" />
 
-    <attr name="theme_icon" format="reference" />
+    <attr name="settings_icon" format="reference" />
     <attr name="camera_icon" format="reference" />
     <attr name="video_icon" format="reference" />
     <attr name="play_icon" format="reference" />

@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">Galleria</string>
-    <string name="switch_theme">Giorno o notte?</string>
 
+    <string name="settings">Opzioni</string>
+
+    <string name="pref_grid_title">Numero colonne</string>
+    <string name="gridsum">Cambia il numero delle colonne degli album</string>
     <string name="two">2 colonne</string>
     <string name="three">3 colonne</string>
     <string name="four">4  colonne</string>
+    <string name="pref_theme_title">Tema app</string>
+    <string name="themesum">Giorno o notte?</string>
+    <string name="light">Giorno</string>
+    <string name="dark">Notte</string>
 
     <string name="size">Dimensione:&#160;</string>
     <string name="height">Altezza:&#160;</string>

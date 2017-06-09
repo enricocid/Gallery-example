@@ -6,7 +6,7 @@
         <item name="crop_icon">@drawable/ic_crop_rotate_black</item>
         <item name="share_icon">@drawable/ic_share_black</item>
         <item name="delete_icon">@drawable/ic_delete_black</item>
-        <item name="theme_icon">@drawable/ic_weather_sunset_down_black</item>
+        <item name="settings_icon">@drawable/ic_settings_black</item>
         <item name="camera_icon">@drawable/ic_camera_black</item>
         <item name="video_icon">@drawable/ic_video_black</item>
         <item name="play_icon">@drawable/ic_play_black</item>
@@ -22,7 +22,7 @@
         <item name="crop_icon">@drawable/ic_crop_rotate_white</item>
         <item name="share_icon">@drawable/ic_share_white</item>
         <item name="delete_icon">@drawable/ic_delete_white</item>
-        <item name="theme_icon">@drawable/ic_weather_sunset_up_white</item>
+        <item name="settings_icon">@drawable/ic_settings_white</item>
         <item name="camera_icon">@drawable/ic_camera_white</item>
         <item name="video_icon">@drawable/ic_video_white</item>
         <item name="play_icon">@drawable/ic_play_white</item>
