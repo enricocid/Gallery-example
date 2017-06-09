@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ListPreference
-        android:defaultValue="4"
+        android:defaultValue="40"
         android:entries="@array/grid_options"
         android:entryValues="@array/pref_grid_values"
         android:key="@string/pref_grid"

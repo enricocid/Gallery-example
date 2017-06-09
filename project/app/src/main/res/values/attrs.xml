@@ -2,6 +2,7 @@
 <resources>
 
     <attr name="ripple_color" format="color" />
+    <attr name="vector_color" format="color" />
 
     <attr name="crop_icon" format="reference" />
     <attr name="share_icon" format="reference" />
