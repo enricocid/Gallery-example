@@ -13,10 +13,10 @@ Features:
 - Long click on media pager will show bottom sheet with infos and actions;
 - Crop, share, set as wallpaper or delete media;
 
-![ScreenShot](https://raw.githubusercontent.com/enricocid/Gallery/master/art/screens.png)
+![ScreenShot](https://raw.githubusercontent.com/enricocid/Gallery/master/art/screens2.png)
 
 
-You can download the latest (1.0) signed APK from this repo here: https://github.com/enricocid/Gallery/raw/master/project/app/app-release.apk
+You can download the latest (1.1) signed APK from this repo here: https://github.com/enricocid/Gallery/raw/master/project/app/app-release.apk
 
 
 The app is available on:
