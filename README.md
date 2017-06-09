@@ -27,6 +27,14 @@ Google Play Store
   <img alt="Get it on Google Play"       src="https://raw.githubusercontent.com/enricocid/Storage-USB/master/art/gplay.png" />
 </a>
 
+**Credits:**
+
+- Ivan, my bro, for the support: https://github.com/ivn888
+
+- https://materialdesignicons.com/ for icons
+
+- https://stackoverflow.com/
+
 
 **Resources used:**
 
