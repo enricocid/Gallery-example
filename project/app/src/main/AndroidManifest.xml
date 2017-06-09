@@ -32,6 +32,11 @@
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.Action.Bar"/>
 
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:label="@string/settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme" />
     </application>
 
 </manifest>

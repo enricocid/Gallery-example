@@ -18,16 +18,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.enrico.gallery.galleryapp.albums.Albums;
 import com.enrico.gallery.galleryapp.albums.AlbumsUtils;
+import com.enrico.gallery.galleryapp.settings.Preferences;
+import com.enrico.gallery.galleryapp.settings.SettingsActivity;
 import com.enrico.gallery.galleryapp.utils.PermissionUtils;
 import com.enrico.gallery.galleryapp.utils.SDCardUtils;
-import com.enrico.gallery.galleryapp.utils.ThemeUtils;
 
 import java.util.List;
 
@@ -35,7 +33,7 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapt
 
 public class MainActivity extends AppCompatActivity {
 
-    static Intent starterIntent;
+    public static Intent starterIntent;
     FloatingActionButton fabPhotos, fabVideos, fabPlus;
     Intent intentVideo = new Intent(MediaStore.INTENT_ACTION_VIDEO_CAMERA);
     Intent intentCamera = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
@@ -46,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     SectionedRecyclerViewAdapter sectionedRecyclerViewAdapter;
     Toolbar toolbar;
-    Spinner spinner;
 
     private AnimatedVectorDrawableCompat plusToMinus, minusToPlus;
     private boolean isShowingPlus = true;
@@ -60,11 +57,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.change_theme:
 
-                ThemeUtils.switchTheme(this, contextThemeWrapper);
+        switch (item.getItemId()) {
+            case R.id.settings:
+
+                Intent settings = new Intent(this, SettingsActivity.class);
+                startActivity(settings);
+
                 break;
         }
 
@@ -94,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
         contextThemeWrapper = new ContextThemeWrapper(getBaseContext(), this.getTheme());
 
-        ThemeUtils.applyTheme(MainActivity.this, contextThemeWrapper);
+        Preferences.applyTheme(contextThemeWrapper, getBaseContext());
 
         setContentView(R.layout.main_activity);
 
@@ -121,37 +120,6 @@ public class MainActivity extends AppCompatActivity {
     private void initViews() {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        spinner = (Spinner) findViewById(R.id.grid_options);
-
-        final ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.grid, android.R.layout.simple_spinner_dropdown_item);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.post(new Runnable() {
-            @Override
-            public void run() {
-
-                spinner.setSelection(GridUtils.getSpinnerPosition(MainActivity.this), false);
-
-                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                        int number = Integer.valueOf(parent.getItemAtPosition(position).toString().substring(0, 1));
-                        GridUtils.setGridNumber(MainActivity.this, number, position);
-
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-
-                    }
-                });
-            }
-
-        });
-
-        spinner.setAdapter(spinnerAdapter);
 
         setSupportActionBar(toolbar);
 

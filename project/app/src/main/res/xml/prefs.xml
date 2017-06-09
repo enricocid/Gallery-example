@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/preference_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListPreference
+        android:defaultValue="4"
+        android:entries="@array/grid_options"
+        android:entryValues="@array/pref_grid_values"
+        android:key="@string/pref_grid"
+        android:summary="@string/gridsum"
+        android:title="@string/pref_grid_title" />
+
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/theme_options"
+        android:entryValues="@array/pref_theme_list_values"
+        android:key="@string/pref_theme"
+        android:summary="@string/themesum"
+        android:title="@string/pref_theme_title" />
+
+</PreferenceScreen>

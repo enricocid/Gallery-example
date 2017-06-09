@@ -12,8 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
 import android.widget.Toast;
 
+import com.enrico.gallery.galleryapp.settings.Preferences;
 import com.enrico.gallery.galleryapp.utils.SDCardUtils;
-import com.enrico.gallery.galleryapp.utils.ThemeUtils;
 
 public class MediaActivity extends AppCompatActivity {
 
@@ -40,7 +40,7 @@ public class MediaActivity extends AppCompatActivity {
 
                 contextThemeWrapper = new ContextThemeWrapper(getBaseContext(), MediaActivity.this.getTheme());
 
-                ThemeUtils.applyTheme(MediaActivity.this, contextThemeWrapper);
+                Preferences.applyTheme(contextThemeWrapper, getBaseContext());
 
                 ImmersiveMode.On(MediaActivity.this);
 

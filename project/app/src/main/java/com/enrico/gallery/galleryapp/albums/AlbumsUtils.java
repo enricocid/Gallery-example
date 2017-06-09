@@ -7,7 +7,7 @@ import android.provider.MediaStore;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.enrico.gallery.galleryapp.GridUtils;
+import com.enrico.gallery.galleryapp.settings.Preferences;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -154,7 +154,8 @@ public class AlbumsUtils {
 
             if (mediaUrls.length != 0) {
 
-                final int gridNumber = GridUtils.getGridNumber(activity);
+                final int gridNumber = Preferences.resolveGrid(activity);
+
                 GridLayoutManager glm = new GridLayoutManager(activity, gridNumber);
                 glm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                     @Override
