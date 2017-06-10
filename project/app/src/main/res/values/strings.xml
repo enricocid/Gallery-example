@@ -93,4 +93,11 @@
 
     <string name="setAs">Set as wallpaper</string>
 
+    <string name="uSureHide">U sure? (ಥ_ʖಥ)</string>
+    <string name="uSureHideContent">U sure u want to hide&#160;</string>
+    <string name="hide">Hide</string>
+    <string name="hidden_title">Hidden albums</string>
+    <string name="hidden_sum">Manage hidden albums</string>
+    <string name="hidden_message">Click folders You want make visible. Click OK to confirm ٩(◕‿◕｡)۶</string>
+
 </resources>

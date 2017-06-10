@@ -21,4 +21,8 @@
         android:summary="@string/themesum"
         android:title="@string/pref_theme_title" />
 
+    <Preference
+        android:key="hiddenFolders"
+        android:summary="@string/hidden_sum"
+        android:title="@string/hidden_title" />
 </PreferenceScreen>

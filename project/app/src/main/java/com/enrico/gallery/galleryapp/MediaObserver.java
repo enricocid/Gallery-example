@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.provider.MediaStore;
 
-class MediaObserver extends ContentObserver {
+public class MediaObserver extends ContentObserver {
 
     private Activity activity;
 
@@ -62,9 +62,13 @@ class MediaObserver extends ContentObserver {
     @Override
     public void onChange(boolean selfChange, Uri uri) {
 
+        restart(activity);
+
+    }
+
+    public static void restart(Activity activity) {
         activity.finish();
         activity.startActivity(MainActivity.starterIntent);
         activity.overridePendingTransition(0, 0);
-
     }
 }

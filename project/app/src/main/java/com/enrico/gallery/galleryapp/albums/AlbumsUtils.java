@@ -2,6 +2,7 @@ package com.enrico.gallery.galleryapp.albums;
 
 import android.app.Activity;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.widget.GridLayoutManager;
@@ -121,7 +122,7 @@ public class AlbumsUtils {
         return allAlbums;
     }
 
-    private static String getFolderName(String path) {
+    static String getFolderName(String path) {
 
         File folderName = new File(path);
 
@@ -129,7 +130,7 @@ public class AlbumsUtils {
 
     }
 
-    public static void setupAlbums(final Activity activity, RecyclerView recyclerView, List<Albums> albumsList, final SectionedRecyclerViewAdapter sectionedRecyclerViewAdapter) {
+    public static void setupAlbums(final Activity activity, RecyclerView recyclerView, List<Albums> albumsList, final SectionedRecyclerViewAdapter sectionedRecyclerViewAdapter, SQLiteDatabase hiddenFoldersDB) {
 
         int mediaSize = albumsList.size();
 
@@ -144,13 +145,43 @@ public class AlbumsUtils {
             paths.add(albumsPath[i]);
         }
 
+        ArrayList<String> mHiddenFolders = new ArrayList<>();
+
+        Cursor cursor = hiddenFoldersDB.rawQuery("SELECT * FROM foldersList;", null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+
+            while (!cursor.isAfterLast()) {
+
+                mHiddenFolders.add(cursor.getString(cursor.getColumnIndex("folder")));
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+
+        if (mHiddenFolders.size() != 0) {
+
+            Set<String> veryHiddenFolders = new HashSet<>();
+
+            for (String hiddenFolders : mHiddenFolders) {
+
+                veryHiddenFolders.add(hiddenFolders);
+            }
+
+            String[] mHidden = veryHiddenFolders.toArray(new String[veryHiddenFolders.size()]);
+
+            for (String hiddenFolders : mHidden) {
+
+                paths.remove(hiddenFolders);
+            }
+        }
+
         String[] veryPaths = paths.toArray(new String[paths.size()]);
 
         for (String path : veryPaths) {
 
             String[] mediaUrls = MediaFromAlbums.listMedia(path);
-
-            String currentFolder = getFolderName(path);
 
             if (mediaUrls.length != 0) {
 
@@ -171,7 +202,7 @@ public class AlbumsUtils {
 
                 recyclerView.setLayoutManager(glm);
 
-                HeaderRecyclerViewSection headerRecyclerViewSection = new HeaderRecyclerViewSection(activity, currentFolder, mediaUrls, sectionedRecyclerViewAdapter, gridNumber);
+                HeaderRecyclerViewSection headerRecyclerViewSection = new HeaderRecyclerViewSection(activity, path, mediaUrls, sectionedRecyclerViewAdapter, gridNumber);
 
                 sectionedRecyclerViewAdapter.addSection(headerRecyclerViewSection);
 

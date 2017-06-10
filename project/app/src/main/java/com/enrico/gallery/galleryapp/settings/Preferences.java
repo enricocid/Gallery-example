@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.preference.PreferenceManager;
 import android.support.v7.view.ContextThemeWrapper;
-import android.util.Log;
 
 import com.enrico.gallery.galleryapp.R;
 

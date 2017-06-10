@@ -3,6 +3,7 @@ package com.enrico.gallery.galleryapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     SectionedRecyclerViewAdapter sectionedRecyclerViewAdapter;
     Toolbar toolbar;
-
+    SQLiteDatabase hiddenFoldersDB;
     private AnimatedVectorDrawableCompat plusToMinus, minusToPlus;
     private boolean isShowingPlus = true;
 
@@ -323,6 +324,9 @@ public class MainActivity extends AppCompatActivity {
 
         protected void onPreExecute() {
 
+            hiddenFoldersDB = MainActivity.this.openOrCreateDatabase("HIDDEN", MODE_PRIVATE, null);
+
+            hiddenFoldersDB.execSQL("CREATE TABLE IF NOT EXISTS foldersList (id INTEGER PRIMARY KEY AUTOINCREMENT,folder varchar);");
         }
 
         @Override
@@ -338,7 +342,7 @@ public class MainActivity extends AppCompatActivity {
 
             super.onPostExecute(result);
 
-            AlbumsUtils.setupAlbums(MainActivity.this, recyclerView, albumsList, sectionedRecyclerViewAdapter);
+            AlbumsUtils.setupAlbums(MainActivity.this, recyclerView, albumsList, sectionedRecyclerViewAdapter, hiddenFoldersDB);
 
         }
     }

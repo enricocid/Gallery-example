@@ -75,4 +75,11 @@
     <string name="shareWith">Condividi usando&#8230;</string>
 
     <string name="setAs">Imposta come wallpaper</string>
+
+    <string name="uSureHide">Sicuro? (ಥ_ʖಥ)</string>
+    <string name="uSureHideContent">Sicuro vuoi nascondere&#160;</string>
+    <string name="hide">Nascondi</string>
+    <string name="hidden_title">Album nascosti</string>
+    <string name="hidden_sum">Gestisci gli album nascosti</string>
+    <string name="hidden_message">Clicca le cartelle che vuoi rendere visibili. Clicca OK per confermare ٩(◕‿◕｡)۶</string>
 </resources>

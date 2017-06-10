@@ -1,19 +1,26 @@
 package com.enrico.gallery.galleryapp.albums;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
+import com.enrico.gallery.galleryapp.MainActivity;
 import com.enrico.gallery.galleryapp.MediaActivity;
+import com.enrico.gallery.galleryapp.MediaObserver;
 import com.enrico.gallery.galleryapp.R;
 import com.enrico.gallery.galleryapp.utils.DeleteFileUtils;
 
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class HeaderRecyclerViewSection extends StatelessSection {
 
@@ -30,6 +37,7 @@ public class HeaderRecyclerViewSection extends StatelessSection {
 
     HeaderRecyclerViewSection(Activity activity, String title, String[] mUrls, SectionedRecyclerViewAdapter sectionedRecyclerViewAdapter, int gridNumber) {
         super(R.layout.header_layout, R.layout.media_item);
+
         this.title = title;
         this.mUrls = mUrls;
         this.activity = activity;
@@ -46,6 +54,43 @@ public class HeaderRecyclerViewSection extends StatelessSection {
         }
 
         return false;
+    }
+
+    private static void youSureToHide(final Activity activity, final String url) {
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                activity);
+
+        alertDialogBuilder.setTitle(activity.getString(R.string.uSureHide));
+
+        alertDialogBuilder
+                .setMessage(activity.getString(R.string.uSureHideContent) + url + activity.getString(R.string.questionMark))
+                .setCancelable(false)
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                                dialog.dismiss();
+
+                            }
+                        }
+                )
+                .setPositiveButton(activity.getString(R.string.hide), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        SQLiteDatabase hiddenFoldersDB = activity.openOrCreateDatabase("HIDDEN", MODE_PRIVATE, null);
+
+                        hiddenFoldersDB.execSQL("CREATE TABLE IF NOT EXISTS foldersList (id INTEGER PRIMARY KEY AUTOINCREMENT,folder varchar);");
+
+                        hiddenFoldersDB.execSQL("insert into foldersList (folder) values(?);", new String[]{url});
+
+                        MediaObserver.restart(activity);
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        alertDialog.show();
+
     }
 
     @Override
@@ -124,7 +169,10 @@ public class HeaderRecyclerViewSection extends StatelessSection {
     @Override
     public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder) {
         final HeaderViewHolder hHolder = (HeaderViewHolder) holder;
-        hHolder.headerTitle.setText(title);
+
+        String currentFolder = AlbumsUtils.getFolderName(title);
+
+        hHolder.headerTitle.setText(currentFolder);
 
         switch (gridNumber) {
             case 2:
@@ -147,6 +195,15 @@ public class HeaderRecyclerViewSection extends StatelessSection {
                 );
 
                 sectionedRecyclerViewAdapter.notifyDataSetChanged();
+            }
+        });
+
+        hHolder.imgVisibilty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                youSureToHide(activity, title);
+
             }
         });
     }

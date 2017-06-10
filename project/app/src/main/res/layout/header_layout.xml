@@ -15,14 +15,31 @@
         android:paddingTop="16dp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:tint="?attr/colorAccent"
-        android:id="@+id/imgArrow"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_arrow_up" />
+        android:layout_centerVertical="true">
+
+        <ImageButton
+            android:id="@+id/imgHide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ripple"
+            android:clickable="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_visibility_off"
+            android:tint="?attr/colorAccent" />
+
+        <ImageView
+            android:id="@+id/imgArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ripple"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_arrow_up"
+            android:tint="?attr/colorAccent" />
+    </LinearLayout>
 </RelativeLayout>
