@@ -8,15 +8,16 @@ Features:
 
 - Albums are shown in a recycler view with expandable sections;
 - Change columns number;
-- Choose between light or dark theme;
+- Hide folders (go to settings to make them visible again);
+- Bunch of themes;
 - Play videos and gifs;
 - Long click on media pager will show bottom sheet with infos and actions;
 - Crop, share, set as wallpaper or delete media;
 
-![ScreenShot](https://raw.githubusercontent.com/enricocid/Gallery/master/art/screens2.png)
+![ScreenShot](https://raw.githubusercontent.com/enricocid/Gallery/master/art/screens3.png)
 
 
-You can download the latest (1.1) signed APK from this repo here: https://github.com/enricocid/Gallery/raw/master/project/app/app-release.apk
+You can download the latest (2.0) signed APK from this repo here: https://github.com/enricocid/Gallery/raw/master/project/app/app-release.apk
 
 
 The app is available on:
@@ -34,6 +35,8 @@ Google Play Store
 - https://materialdesignicons.com/ for icons
 
 - https://stackoverflow.com/
+
+- http://dongerlist.com/?ref=producthunt for ascii
 
 
 **Resources used:**
