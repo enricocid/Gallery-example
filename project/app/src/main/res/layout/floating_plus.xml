@@ -38,6 +38,7 @@
         android:layout_below="@+id/fab_photos"
         android:layout_margin="@dimen/floating_action_button_spacing"
         android:clickable="true"
+        app:backgroundTint="?attr/colorPrimaryDark"
         android:elevation="6dp"
         app:fabSize="normal"
         app:srcCompat="@drawable/avd_pathmorph_plusminus_plus_to_minus" />

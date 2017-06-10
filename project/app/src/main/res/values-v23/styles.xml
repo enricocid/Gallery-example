@@ -1,7 +1,5 @@
 <resources>
 
-    <!-- Theme colors -->
-
     <style name="Base.Theme.Dark.LightBlue" parent="App.Theme.Dark">
         <item name="colorPrimaryDark">?attr/colorAccent</item>
         <item name="colorAccent">@color/material_lightBlue_a400</item>
