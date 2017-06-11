@@ -13,14 +13,13 @@ android {
         applicationId "com.enrico.gallery.galleryapp"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 4
-        versionName "2.0.1"
+        versionCode 5
+        versionName "2.0.2"
     }
 
     buildTypes {
 
         release {
-            minifyEnabled true
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     'proguard-rules.pro'
