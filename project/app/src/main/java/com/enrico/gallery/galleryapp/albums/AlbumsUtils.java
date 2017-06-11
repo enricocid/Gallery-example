@@ -13,7 +13,6 @@ import com.enrico.gallery.galleryapp.settings.Preferences;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
@@ -130,7 +129,9 @@ public class AlbumsUtils {
 
     }
 
-    public static void setupAlbums(final Activity activity, RecyclerView recyclerView, List<Albums> albumsList, final SectionedRecyclerViewAdapter sectionedRecyclerViewAdapter, SQLiteDatabase hiddenFoldersDB) {
+    public static void setupAlbums(final Activity activity, RecyclerView recyclerView, final SectionedRecyclerViewAdapter sectionedRecyclerViewAdapter, SQLiteDatabase hiddenFoldersDB) {
+
+        ArrayList<Albums> albumsList = AlbumsUtils.getAllAlbums(activity);
 
         int mediaSize = albumsList.size();
 

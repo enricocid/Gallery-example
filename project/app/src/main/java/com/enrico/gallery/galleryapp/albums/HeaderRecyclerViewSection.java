@@ -11,7 +11,6 @@ import android.util.TypedValue;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
-import com.enrico.gallery.galleryapp.MainActivity;
 import com.enrico.gallery.galleryapp.MediaActivity;
 import com.enrico.gallery.galleryapp.MediaObserver;
 import com.enrico.gallery.galleryapp.R;
@@ -127,6 +126,7 @@ public class HeaderRecyclerViewSection extends StatelessSection {
                         .load(url)
                         .crossFade()
                         .placeholder(R.mipmap.ic_mood)
+                        .thumbnail(0.1f)
                         .into(iHolder.picView);
 
                 iHolder.rootView.setOnClickListener(new View.OnClickListener() {

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -21,14 +20,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.enrico.gallery.galleryapp.albums.Albums;
 import com.enrico.gallery.galleryapp.albums.AlbumsUtils;
 import com.enrico.gallery.galleryapp.settings.Preferences;
 import com.enrico.gallery.galleryapp.settings.SettingsActivity;
 import com.enrico.gallery.galleryapp.utils.PermissionUtils;
 import com.enrico.gallery.galleryapp.utils.SDCardUtils;
-
-import java.util.List;
 
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
 
@@ -39,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     Intent intentVideo = new Intent(MediaStore.INTENT_ACTION_VIDEO_CAMERA);
     Intent intentCamera = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
     ContextThemeWrapper contextThemeWrapper;
-    List<Albums> albumsList;
     View clickedFab;
 
     RecyclerView recyclerView;
@@ -112,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
 
-            new LoadAlbumsAsync().execute();
+            loadGallery();
 
         }
 
@@ -277,8 +272,7 @@ public class MainActivity extends AppCompatActivity {
             case 0: {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-
-                    new LoadAlbumsAsync().execute();
+                    loadGallery();
 
                 } else {
 
@@ -320,31 +314,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class LoadAlbumsAsync extends AsyncTask<Void, Void, Void> {
+    private void loadGallery() {
 
-        protected void onPreExecute() {
+        hiddenFoldersDB = MainActivity.this.openOrCreateDatabase("HIDDEN", MODE_PRIVATE, null);
 
-            hiddenFoldersDB = MainActivity.this.openOrCreateDatabase("HIDDEN", MODE_PRIVATE, null);
+        hiddenFoldersDB.execSQL("CREATE TABLE IF NOT EXISTS foldersList (id INTEGER PRIMARY KEY AUTOINCREMENT,folder varchar);");
 
-            hiddenFoldersDB.execSQL("CREATE TABLE IF NOT EXISTS foldersList (id INTEGER PRIMARY KEY AUTOINCREMENT,folder varchar);");
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            albumsList = AlbumsUtils.getAllAlbums(MainActivity.this);
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-
-            super.onPostExecute(result);
-
-            AlbumsUtils.setupAlbums(MainActivity.this, recyclerView, albumsList, sectionedRecyclerViewAdapter, hiddenFoldersDB);
-
-        }
+        AlbumsUtils.setupAlbums(MainActivity.this, recyclerView, sectionedRecyclerViewAdapter, hiddenFoldersDB);
     }
 }
 
