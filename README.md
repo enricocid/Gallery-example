@@ -17,7 +17,7 @@ Features:
 ![ScreenShot](https://raw.githubusercontent.com/enricocid/Gallery/master/art/screens3.png)
 
 
-You can download the latest (2.0.2) signed APK from this repo here: https://github.com/enricocid/Gallery/raw/master/project/app/app-release.apk
+You can download the latest (2.0.3) signed APK from this repo here: https://github.com/enricocid/Gallery/raw/master/project/app/app-release.apk
 
 
 The app is available on:

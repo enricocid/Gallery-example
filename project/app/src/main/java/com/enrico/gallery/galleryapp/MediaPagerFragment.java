@@ -1,17 +1,13 @@
 package com.enrico.gallery.galleryapp;
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v7.graphics.Palette;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +16,10 @@ import android.widget.LinearLayout;
 import com.afollestad.easyvideoplayer.EasyVideoCallback;
 import com.afollestad.easyvideoplayer.EasyVideoPlayer;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.enrico.gallery.galleryapp.utils.BottomSheetMediaActions;
-import com.enrico.gallery.galleryapp.utils.RandomMaterialColor;
 import com.enrico.gallery.galleryapp.utils.SaveTools;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -38,10 +33,9 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
 
     PhotoView photoView;
     String[] mUrls;
-    CoordinatorLayout background;
     BottomSheetBehavior bottomSheetBehavior;
 
-    int pos, color;
+    int pos;
     FloatingActionButton fabPlay;
     String url;
     Fragment fragment;
@@ -254,8 +248,6 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
             }
         });
 
-        background = (CoordinatorLayout) view.findViewById(R.id.background);
-
         if (stringContainsItemFromList(mUrls[pos], VIDEO_EXTENSIONS)) {
 
             videoView = (EasyVideoPlayer) view.findViewById(R.id.videoView);
@@ -263,8 +255,6 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
             videoView.setCallback(this);
 
             videoView.setSource(Uri.parse(mUrls[pos]));
-
-            fabPlay.setBackgroundTintList(ColorStateList.valueOf(RandomMaterialColor.get()));
 
             fabPlay.show();
             fabPlay.setOnClickListener(new View.OnClickListener() {
@@ -292,31 +282,8 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
         Glide.with(getActivity())
                 .load(mUrls[pos])
                 .asBitmap()
-                .into(new BitmapImageViewTarget(photoView) {
-                    @Override
-                    public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
-                        super.onResourceReady(bitmap, anim);
-                        Palette.from(bitmap)
-                                .generate(new Palette.PaletteAsyncListener() {
-                                    @Override
-                                    public void onGenerated(Palette palette) {
-
-                                        int def = 0x000000;
-
-                                        color = palette.getLightMutedColor(def);
-
-                                        if (color == 0) {
-                                            color = palette.getDominantColor(def);
-                                            if (color == 0) {
-                                                color = Color.DKGRAY;
-                                            }
-                                        }
-
-                                        background.setBackgroundColor(color);
-
-                                    }
-                                });
-                    }
-                });
+                .placeholder(R.drawable.image_area)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .into(photoView);
     }
 }

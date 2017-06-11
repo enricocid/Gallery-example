@@ -6,6 +6,7 @@
         <item name="ripple_color">@color/material_lightBlue_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Cyan" parent="App.Theme">
@@ -14,6 +15,7 @@
         <item name="ripple_color">@color/material_cyan_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Dark.Cyan" parent="App.Theme.Dark">
@@ -22,6 +24,7 @@
         <item name="ripple_color">@color/material_cyan_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Teal" parent="App.Theme">
@@ -30,6 +33,7 @@
         <item name="ripple_color">@color/material_teal_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Dark.Teal" parent="App.Theme.Dark">
@@ -38,6 +42,7 @@
         <item name="ripple_color">@color/material_teal_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Green" parent="App.Theme">
@@ -46,6 +51,7 @@
         <item name="ripple_color">@color/material_green_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Dark.Green" parent="App.Theme.Dark">
@@ -54,6 +60,7 @@
         <item name="ripple_color">@color/material_green_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.LightGreen" parent="App.Theme">
@@ -62,6 +69,7 @@
         <item name="ripple_color">@color/material_lightGreen_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Dark.LightGreen" parent="App.Theme.Dark">
@@ -70,6 +78,7 @@
         <item name="ripple_color">@color/material_lightGreen_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Lime" parent="App.Theme">
@@ -78,6 +87,7 @@
         <item name="ripple_color">@color/material_lime_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Dark.Lime" parent="App.Theme.Dark">
@@ -86,6 +96,7 @@
         <item name="ripple_color">@color/material_lime_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Yellow" parent="App.Theme">
@@ -94,6 +105,7 @@
         <item name="ripple_color">@color/material_yellow_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Dark.Yellow" parent="App.Theme.Dark">
@@ -102,6 +114,7 @@
         <item name="ripple_color">@color/material_yellow_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Amber" parent="App.Theme">
@@ -110,6 +123,7 @@
         <item name="ripple_color">@color/material_amber_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Dark.Amber" parent="App.Theme.Dark">
@@ -118,6 +132,7 @@
         <item name="ripple_color">@color/material_amber_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Orange" parent="App.Theme">
@@ -126,6 +141,7 @@
         <item name="ripple_color">@color/material_orange_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 
     <style name="Base.Theme.Dark.Orange" parent="App.Theme.Dark">
@@ -134,5 +150,6 @@
         <item name="ripple_color">@color/material_orange_a400</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="vector_color">@android:color/black</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
     </style>
 </resources>

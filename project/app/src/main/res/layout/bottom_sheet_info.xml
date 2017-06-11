@@ -166,12 +166,14 @@
         android:id="@+id/setAs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/set_wallpaper_color"
         android:foreground="@drawable/ripple"
         android:gravity="center"
         android:padding="12dp"
         android:text="@string/setAs"
         android:textAlignment="center"
         android:textAllCaps="true"
+        android:textColor="?attr/set_wallpaper_text_color"
         android:textStyle="bold"
         android:visibility="gone" />
 </LinearLayout>

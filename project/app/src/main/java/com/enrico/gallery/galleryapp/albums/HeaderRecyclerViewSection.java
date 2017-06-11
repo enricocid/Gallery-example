@@ -11,6 +11,7 @@ import android.util.TypedValue;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.enrico.gallery.galleryapp.MediaActivity;
 import com.enrico.gallery.galleryapp.MediaObserver;
 import com.enrico.gallery.galleryapp.R;
@@ -124,9 +125,9 @@ public class HeaderRecyclerViewSection extends StatelessSection {
 
                 Glide.with(activity)
                         .load(url)
-                        .crossFade()
+                        .asBitmap()
                         .placeholder(R.mipmap.ic_mood)
-                        .thumbnail(0.1f)
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
                         .into(iHolder.picView);
 
                 iHolder.rootView.setOnClickListener(new View.OnClickListener() {
@@ -186,7 +187,7 @@ public class HeaderRecyclerViewSection extends StatelessSection {
                 break;
         }
 
-        hHolder.rootView.setOnClickListener(new View.OnClickListener() {
+        hHolder.imgArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 expanded = !expanded;

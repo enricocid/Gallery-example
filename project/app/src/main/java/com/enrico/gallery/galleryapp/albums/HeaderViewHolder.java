@@ -11,14 +11,12 @@ import com.enrico.gallery.galleryapp.R;
 class HeaderViewHolder extends RecyclerView.ViewHolder {
 
     TextView headerTitle;
-    View rootView;
     ImageView imgArrow;
     ImageButton imgVisibilty;
 
     HeaderViewHolder(View itemView) {
         super(itemView);
         headerTitle = (TextView) itemView.findViewById(R.id.header_id);
-        rootView = itemView;
         imgArrow = (ImageView) itemView.findViewById(R.id.imgArrow);
         imgVisibilty = (ImageButton) itemView.findViewById(R.id.imgHide);
     }

@@ -72,8 +72,6 @@ public class BottomSheetMediaActions {
         ImageButton delete = (ImageButton) bottomView.findViewById(R.id.delete);
         final TextView setAsWallpaper = (TextView) bottomView.findViewById(R.id.setAs);
 
-        setAsWallpaper.setBackgroundColor(RandomMaterialColor.get());
-
         if (!stringContainsItemFromList(url, VIDEO_EXTENSIONS)) {
             setAsWallpaper.setVisibility(View.VISIBLE);
 
