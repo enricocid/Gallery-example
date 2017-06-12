@@ -134,16 +134,11 @@ public class HeaderRecyclerViewSection extends StatelessSection {
                     @Override
                     public void onClick(View v) {
 
-                        Bundle bundle = new Bundle();
-
-                        bundle.putStringArray("urls", mUrls);
                         Intent intent = new Intent(activity,
                                 MediaActivity.class);
 
-                        intent.putExtras(bundle);
+                        intent.putExtra("urls", mUrls);
                         intent.putExtra("pos", position);
-
-                        intent.putExtra("count", getContentItemsTotal());
 
                         activity.startActivity(intent);
                     }

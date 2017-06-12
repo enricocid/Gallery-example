@@ -51,10 +51,7 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
     public void onPause() {
         super.onPause();
 
-        if (stringContainsItemFromList(mUrls[pos], VIDEO_EXTENSIONS)) {
-
             videoView.pause();
-        }
     }
 
     @Override
@@ -69,6 +66,8 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
         pos = getArguments().getInt("pos");
 
         url = mUrls[pos];
+
+        setRetainInstance(true);
     }
 
     @Override
@@ -93,7 +92,7 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
                 public void run() {
                     initViews(view);
 
-                    initMediaView(view);
+                    initMediaView();
 
                 }
             });
@@ -200,57 +199,15 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
 
         photoView = (PhotoView) view.findViewById(R.id.photoView);
 
-    }
-
-    private void initMediaView(View view) {
+        videoView = (EasyVideoPlayer) view.findViewById(R.id.videoView);
 
         fabPlay = (FloatingActionButton) view.findViewById(R.id.fab_play);
 
-        photoView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
+    }
 
-                BottomSheetMediaActions.show(getActivity(), bottomSheet, url, fragment);
-
-                if (stringContainsItemFromList(mUrls[pos], VIDEO_EXTENSIONS)) {
-
-                    bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-                        @Override
-                        public void onStateChanged(@NonNull View bottomSheet, int newState) {
-
-                            switch (newState) {
-                                case BottomSheetBehavior.STATE_EXPANDED:
-
-                                    fabPlay.hide();
-                                    break;
-                                case BottomSheetBehavior.STATE_COLLAPSED:
-
-                                    fabPlay.show();
-                                    break;
-
-                                case BottomSheetBehavior.STATE_HIDDEN:
-
-                                    if (!videoView.isShown()) {
-                                        fabPlay.show();
-                                    }
-                            }
-                        }
-
-                        @Override
-                        public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
-                        }
-                    });
-
-                }
-
-                return false;
-            }
-        });
+    private void initMediaView() {
 
         if (stringContainsItemFromList(mUrls[pos], VIDEO_EXTENSIONS)) {
-
-            videoView = (EasyVideoPlayer) view.findViewById(R.id.videoView);
 
             videoView.setCallback(this);
 
@@ -277,10 +234,58 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
                     });
                 }
             });
+
+            photoView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+
+                    BottomSheetMediaActions.show(getActivity(), bottomSheet, url, fragment);
+
+                        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+                            @Override
+                            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+
+                                switch (newState) {
+                                    case BottomSheetBehavior.STATE_EXPANDED:
+
+                                        fabPlay.hide();
+                                        break;
+                                    case BottomSheetBehavior.STATE_COLLAPSED:
+
+                                        fabPlay.show();
+                                        break;
+
+                                    case BottomSheetBehavior.STATE_HIDDEN:
+
+                                        if (!videoView.isShown()) {
+                                            fabPlay.show();
+                                        }
+                                }
+                            }
+
+                            @Override
+                            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+
+                            }
+                        });
+
+                    return false;
+                }
+            });
+        } else {
+
+            photoView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+
+                    BottomSheetMediaActions.show(getActivity(), bottomSheet, url, fragment);
+                    return false;
+                }
+            });
         }
 
         Glide.with(getActivity())
-                .load(mUrls[pos])
+                .load(url)
                 .asBitmap()
                 .placeholder(R.drawable.image_area)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)

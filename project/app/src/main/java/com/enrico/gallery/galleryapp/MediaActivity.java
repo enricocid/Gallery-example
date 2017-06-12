@@ -3,6 +3,7 @@ package com.enrico.gallery.galleryapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -17,7 +18,7 @@ import com.enrico.gallery.galleryapp.utils.SDCardUtils;
 
 public class MediaActivity extends AppCompatActivity {
 
-    int pos, count;
+    int pos;
 
     String[] mUrls;
 
@@ -30,8 +31,8 @@ public class MediaActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        mUrls = (String[]) getIntent().getExtras().get("urls");
-        count = getIntent().getExtras().getInt("count");
+        mUrls = getIntent().getExtras().getStringArray("urls");
+
         pos = getIntent().getExtras().getInt("pos");
 
         runOnUiThread(new Runnable() {
@@ -93,7 +94,7 @@ public class MediaActivity extends AppCompatActivity {
                             .show();
 
                 }
-                break;
+            break;
         }
     }
 
@@ -111,6 +112,7 @@ public class MediaActivity extends AppCompatActivity {
             MediaPagerFragment frag = new MediaPagerFragment();
 
             Bundle bundle = new Bundle();
+
             bundle.putStringArray("urls", mUrls);
             bundle.putInt("pos", position);
             frag.setArguments(bundle);
@@ -120,9 +122,15 @@ public class MediaActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return count;
+            return mUrls.length;
         }
 
+        @Override
+        public Parcelable saveState() {
+            Bundle bundle = (Bundle) super.saveState();
+            bundle.putParcelableArray("states", null);
+            return bundle;
+        }
     }
 }
 
