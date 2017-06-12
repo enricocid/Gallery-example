@@ -80,9 +80,17 @@ public class BottomSheetMediaActions {
                 @Override
                 public void onClick(View v) {
 
-                    CropImage.activity(Uri.fromFile(new File(url)))
-                            .setActivityMenuIconColor(Color.BLACK)
-                            .start(activity, ifAny);
+                    if (ifAny != null) {
+                        CropImage.activity(Uri.fromFile(new File(url)))
+                                .setActivityMenuIconColor(Color.BLACK)
+                                .start(activity, ifAny);
+                    } else {
+                        CropImage.activity(Uri.fromFile(new File(url)))
+                                .setActivityMenuIconColor(Color.BLACK)
+                                .start(activity);
+
+                    }
+
 
                 }
             });

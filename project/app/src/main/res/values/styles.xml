@@ -9,7 +9,7 @@
         <item name="video_icon">@drawable/ic_video_black</item>
         <item name="set_wallpaper_color">@android:color/black</item>
         <item name="set_wallpaper_text_color">@android:color/white</item>
-        <item name="play_icon">@drawable/ic_play_black</item>
+        <item name="play_icon">@drawable/ic_play_white</item>
         <item name="toolbarStyle">@style/Custom.Widget.Toolbar</item>
         <item name="toolbarNavigationButtonStyle">@style/Custom.Widget.Toolbar.Button.Navigation
         </item>
@@ -30,7 +30,7 @@
         <item name="video_icon">@drawable/ic_video_white</item>
         <item name="set_wallpaper_color">@android:color/white</item>
         <item name="set_wallpaper_text_color">@android:color/black</item>
-        <item name="play_icon">@drawable/ic_play_white</item>
+        <item name="play_icon">@drawable/ic_play_black</item>
         <item name="toolbarStyle">@style/Custom.Widget.Toolbar</item>
         <item name="toolbarNavigationButtonStyle">@style/Custom.Widget.Toolbar.Button.Navigation
         </item>

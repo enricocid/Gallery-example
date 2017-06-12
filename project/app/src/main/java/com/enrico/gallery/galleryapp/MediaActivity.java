@@ -31,9 +31,11 @@ public class MediaActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        mUrls = getIntent().getExtras().getStringArray("urls");
+        Intent intent = getIntent();
 
-        pos = getIntent().getExtras().getInt("pos");
+        mUrls = intent.getExtras().getStringArray("urls");
+
+        pos = intent.getExtras().getInt("pos");
 
         runOnUiThread(new Runnable() {
             @Override
@@ -94,7 +96,7 @@ public class MediaActivity extends AppCompatActivity {
                             .show();
 
                 }
-            break;
+                break;
         }
     }
 
@@ -103,7 +105,6 @@ public class MediaActivity extends AppCompatActivity {
         MyPagerAdapter(FragmentManager fm) {
 
             super(fm);
-
         }
 
         @Override
@@ -115,6 +116,7 @@ public class MediaActivity extends AppCompatActivity {
 
             bundle.putStringArray("urls", mUrls);
             bundle.putInt("pos", position);
+
             frag.setArguments(bundle);
 
             return frag;

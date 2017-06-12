@@ -27,7 +27,28 @@
         <activity
             android:name=".MediaActivity"
             android:theme="@style/Base.Theme"
-            android:configChanges="orientation|keyboardHidden|screenLayout|screenSize"/>
+            android:configChanges="orientation|keyboardHidden|screenLayout|screenSize">
+
+        </activity>
+
+        <activity
+            android:name=".utils.MediaBrowser"
+            android:theme="@style/Base.Theme"
+            android:configChanges="orientation|keyboardHidden|screenLayout|screenSize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:mimeType="image/*" />
+                <data android:mimeType="video/*" />
+                <data android:mimeType="application/vnd.google.panorama360+jpg" />
+            </intent-filter>
+        </activity>
 
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.Action.Bar"/>

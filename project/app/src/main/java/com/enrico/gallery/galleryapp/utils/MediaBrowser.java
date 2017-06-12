@@ -1,16 +1,17 @@
-package com.enrico.gallery.galleryapp;
+package com.enrico.gallery.galleryapp.utils;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ContextThemeWrapper;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.afollestad.easyvideoplayer.EasyVideoCallback;
@@ -19,27 +20,29 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.enrico.gallery.galleryapp.utils.BottomSheetMediaActions;
-import com.enrico.gallery.galleryapp.utils.SaveTools;
+import com.enrico.gallery.galleryapp.ImmersiveMode;
+import com.enrico.gallery.galleryapp.R;
+import com.enrico.gallery.galleryapp.settings.Preferences;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.io.IOException;
 
-import static android.app.Activity.RESULT_OK;
 import static com.enrico.gallery.galleryapp.albums.HeaderRecyclerViewSection.stringContainsItemFromList;
 
-public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
+public class MediaBrowser extends AppCompatActivity implements EasyVideoCallback {
 
     PhotoView photoView;
-    String[] mUrls;
+
     BottomSheetBehavior bottomSheetBehavior;
 
-    int pos;
     FloatingActionButton fabPlay;
+
     String url;
-    Fragment fragment;
+
     LinearLayout bottomSheet;
+
+    ContextThemeWrapper contextThemeWrapper;
 
     private String[] VIDEO_EXTENSIONS = {"mp4", "avi", "mpg", "mkv", "webm", "flv", "gif",
             "wmv", "mov", "qt", "m4p", "m4v", "mpeg", "mp2",
@@ -59,45 +62,49 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
 
         super.onCreate(savedInstanceState);
 
-        fragment = this;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
 
-        mUrls = (String[]) getActivity().getIntent().getExtras().get("urls");
+                contextThemeWrapper = new ContextThemeWrapper(getBaseContext(), MediaBrowser.this.getTheme());
 
-        pos = getArguments().getInt("pos");
+                Preferences.applyTheme(contextThemeWrapper, getBaseContext());
 
-        url = mUrls[pos];
+                ImmersiveMode.On(MediaBrowser.this);
 
-        setRetainInstance(true);
-    }
+            }
+        });
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+        setContentView(R.layout.media_pager);
 
-        return inflater
-                .inflate(R.layout.media_pager, container, false);
+        // Get intent, action and MIME type
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();
 
-    }
+        if (Intent.ACTION_VIEW.equals(action) && type != null) {
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+            if (type.startsWith("image/") || type.startsWith("video/")) {
 
-        final View view = getView();
+                Uri imageUri = intent.getData();
 
-        if (view != null) {
+                url = convertMediaUriToPath(imageUri);
 
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    initViews(view);
-
-                    initMediaView();
-
-                }
-            });
+            }
 
         }
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                initViews();
+
+                initMediaView();
+
+            }
+        });
+
     }
 
     @Override
@@ -163,19 +170,19 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
                 Uri resultUri = result.getUri();
 
                 Glide
-                        .with(getActivity())
+                        .with(this)
                         .load(resultUri)
                         .asBitmap()
                         .into(new SimpleTarget<Bitmap>() {
                             @Override
                             public void onResourceReady(final Bitmap resource, GlideAnimation glideAnimation) {
 
-                                getActivity().runOnUiThread(new Runnable() {
+                                runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
 
                                         try {
-                                            SaveTools.saveImage(resource, url, getActivity());
+                                            SaveTools.saveImage(resource, url, MediaBrowser.this);
 
                                         } catch (IOException ex) {
                                             ex.printStackTrace();
@@ -189,19 +196,19 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
         }
     }
 
-    private void initViews(View view) {
+    private void initViews() {
 
-        bottomSheet = (LinearLayout) view.findViewById(R.id.bottom_sheet_media);
+        bottomSheet = (LinearLayout) findViewById(R.id.bottom_sheet_media);
 
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
 
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
-        photoView = (PhotoView) view.findViewById(R.id.photoView);
+        photoView = (PhotoView) findViewById(R.id.photoView);
 
-        videoView = (EasyVideoPlayer) view.findViewById(R.id.videoView);
+        videoView = (EasyVideoPlayer) findViewById(R.id.videoView);
 
-        fabPlay = (FloatingActionButton) view.findViewById(R.id.fab_play);
+        fabPlay = (FloatingActionButton) findViewById(R.id.fab_play);
 
     }
 
@@ -239,7 +246,7 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
                 @Override
                 public boolean onLongClick(View v) {
 
-                    BottomSheetMediaActions.show(getActivity(), bottomSheet, url, fragment);
+                    BottomSheetMediaActions.show(MediaBrowser.this, bottomSheet, url, null);
 
                     bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
                         @Override
@@ -278,17 +285,32 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
                 @Override
                 public boolean onLongClick(View v) {
 
-                    BottomSheetMediaActions.show(getActivity(), bottomSheet, url, fragment);
+                    BottomSheetMediaActions.show(MediaBrowser.this, bottomSheet, url, null);
                     return false;
                 }
             });
         }
 
-        Glide.with(getActivity())
+        Glide.with(this)
                 .load(url)
                 .asBitmap()
                 .placeholder(R.drawable.image_area)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(photoView);
+    }
+
+    protected String convertMediaUriToPath(Uri uri) {
+
+        String filePath = "";
+
+        Cursor cursor = this.getContentResolver().query(uri, new String[]{MediaStore.MediaColumns.DATA}, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+            filePath = cursor.getString(0);
+            cursor.close();
+        }
+
+        return filePath;
     }
 }

@@ -21,7 +21,7 @@ public class AlbumsUtils {
 
     private static ArrayList<Albums> allAlbums = new ArrayList<>();
 
-    public static ArrayList<Albums> getAllAlbums(Activity activity) {
+    private static ArrayList<Albums> getAllAlbums(Activity activity) {
 
         Uri externalImagesUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         Uri internalImagesUri = MediaStore.Images.Media.INTERNAL_CONTENT_URI;

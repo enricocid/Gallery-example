@@ -8,9 +8,9 @@ import android.view.WindowManager;
  * Created by Enrico on 27/05/2017.
  */
 
-class ImmersiveMode {
+public class ImmersiveMode {
 
-    static void On(Activity activity) {
+    public static void On(Activity activity) {
 
         activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
                 WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
