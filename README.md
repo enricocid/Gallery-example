@@ -17,7 +17,7 @@ Features:
 ![ScreenShot](https://raw.githubusercontent.com/enricocid/Gallery/master/art/screens4.png)
 
 
-You can download the latest (2.0.3) signed APK from this repo here: https://github.com/enricocid/Gallery/raw/master/project/app/app-release.apk
+You can download the latest (2.1) signed APK from this repo here: https://github.com/enricocid/Gallery/raw/master/project/app/app-release.apk
 
 
 The app is available on:
@@ -31,6 +31,8 @@ Google Play Store
 **Credits:**
 
 - Ivan, my bro, for the support: https://github.com/ivn888
+
+- @RoySchutte (https://github.com/RoySchutte), for nl translations;
 
 - https://materialdesignicons.com/ for icons
 
