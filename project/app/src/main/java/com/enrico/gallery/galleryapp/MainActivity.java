@@ -3,7 +3,6 @@ package com.enrico.gallery.galleryapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -20,7 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.enrico.gallery.galleryapp.albums.AlbumsUtils;
+import com.enrico.gallery.galleryapp.albums.AsyncLoadGallery;
 import com.enrico.gallery.galleryapp.settings.Preferences;
 import com.enrico.gallery.galleryapp.settings.SettingsActivity;
 import com.enrico.gallery.galleryapp.utils.PermissionUtils;
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     SectionedRecyclerViewAdapter sectionedRecyclerViewAdapter;
     Toolbar toolbar;
-    SQLiteDatabase hiddenFoldersDB;
+
     private AnimatedVectorDrawableCompat plusToMinus, minusToPlus;
     private boolean isShowingPlus = true;
 
@@ -107,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
 
-            loadGallery();
+            AsyncLoadGallery.execute(this, recyclerView, sectionedRecyclerViewAdapter);
 
         }
 
@@ -272,7 +271,7 @@ public class MainActivity extends AppCompatActivity {
             case 0: {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                    loadGallery();
+                    AsyncLoadGallery.execute(this, recyclerView, sectionedRecyclerViewAdapter);
 
                 } else {
 
@@ -312,15 +311,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
-    }
-
-    private void loadGallery() {
-
-        hiddenFoldersDB = MainActivity.this.openOrCreateDatabase("HIDDEN", MODE_PRIVATE, null);
-
-        hiddenFoldersDB.execSQL("CREATE TABLE IF NOT EXISTS foldersList (id INTEGER PRIMARY KEY AUTOINCREMENT,folder varchar);");
-
-        AlbumsUtils.setupAlbums(MainActivity.this, recyclerView, sectionedRecyclerViewAdapter, hiddenFoldersDB);
     }
 }
 

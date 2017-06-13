@@ -17,11 +17,13 @@ import java.util.Set;
 
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class AlbumsUtils {
 
     private static ArrayList<Albums> allAlbums = new ArrayList<>();
 
-    private static ArrayList<Albums> getAllAlbums(Activity activity) {
+    static ArrayList<Albums> getAllAlbums(Activity activity) {
 
         Uri externalImagesUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         Uri internalImagesUri = MediaStore.Images.Media.INTERNAL_CONTENT_URI;
@@ -129,56 +131,7 @@ public class AlbumsUtils {
 
     }
 
-    public static void setupAlbums(final Activity activity, RecyclerView recyclerView, final SectionedRecyclerViewAdapter sectionedRecyclerViewAdapter, SQLiteDatabase hiddenFoldersDB) {
-
-        ArrayList<Albums> albumsList = AlbumsUtils.getAllAlbums(activity);
-
-        int mediaSize = albumsList.size();
-
-        String[] albumsPath = new String[mediaSize];
-
-        Set<String> paths = new HashSet<>();
-
-        for (int i = 0; i < albumsList.size(); i++) {
-
-            albumsPath[i] = albumsList.get(i).getAlbumsPath();
-
-            paths.add(albumsPath[i]);
-        }
-
-        ArrayList<String> mHiddenFolders = new ArrayList<>();
-
-        Cursor cursor = hiddenFoldersDB.rawQuery("SELECT * FROM foldersList;", null);
-
-        if (cursor != null && cursor.moveToFirst()) {
-
-            while (!cursor.isAfterLast()) {
-
-                mHiddenFolders.add(cursor.getString(cursor.getColumnIndex("folder")));
-                cursor.moveToNext();
-            }
-            cursor.close();
-        }
-
-
-        if (mHiddenFolders.size() != 0) {
-
-            Set<String> veryHiddenFolders = new HashSet<>();
-
-            for (String hiddenFolders : mHiddenFolders) {
-
-                veryHiddenFolders.add(hiddenFolders);
-            }
-
-            String[] mHidden = veryHiddenFolders.toArray(new String[veryHiddenFolders.size()]);
-
-            for (String hiddenFolders : mHidden) {
-
-                paths.remove(hiddenFolders);
-            }
-        }
-
-        String[] veryPaths = paths.toArray(new String[paths.size()]);
+    static void setupAlbums(final Activity activity, String[] veryPaths, RecyclerView recyclerView, final SectionedRecyclerViewAdapter sectionedRecyclerViewAdapter) {
 
         for (String path : veryPaths) {
 
@@ -211,6 +164,60 @@ public class AlbumsUtils {
 
         }
 
+    }
+
+    static String[] initFolders(Activity activity, ArrayList<Albums> albumsList) {
+
+        int mediaSize = albumsList.size();
+
+        String[] albumsPath = new String[mediaSize];
+
+        Set<String> paths = new HashSet<>();
+
+        for (int i = 0; i < albumsList.size(); i++) {
+
+            albumsPath[i] = albumsList.get(i).getAlbumsPath();
+
+            paths.add(albumsPath[i]);
+        }
+
+        ArrayList<String> mHiddenFolders = new ArrayList<>();
+
+        SQLiteDatabase hiddenFoldersDB = activity.openOrCreateDatabase("HIDDEN", MODE_PRIVATE, null);
+
+        hiddenFoldersDB.execSQL("CREATE TABLE IF NOT EXISTS foldersList (id INTEGER PRIMARY KEY AUTOINCREMENT,folder varchar);");
+
+        Cursor cursor = hiddenFoldersDB.rawQuery("SELECT * FROM foldersList;", null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+
+            while (!cursor.isAfterLast()) {
+
+                mHiddenFolders.add(cursor.getString(cursor.getColumnIndex("folder")));
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+
+        if (mHiddenFolders.size() != 0) {
+
+            Set<String> veryHiddenFolders = new HashSet<>();
+
+            for (String hiddenFolders : mHiddenFolders) {
+
+                veryHiddenFolders.add(hiddenFolders);
+            }
+
+            String[] mHidden = veryHiddenFolders.toArray(new String[veryHiddenFolders.size()]);
+
+            for (String hiddenFolders : mHidden) {
+
+                paths.remove(hiddenFolders);
+            }
+        }
+
+        return paths.toArray(new String[paths.size()]);
     }
 }
 
