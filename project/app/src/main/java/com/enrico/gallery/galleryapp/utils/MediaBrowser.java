@@ -2,6 +2,8 @@ package com.enrico.gallery.galleryapp.utils;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -258,10 +260,12 @@ public class MediaBrowser extends AppCompatActivity implements EasyVideoCallback
             });
         }
 
+        ColorDrawable transparentDrawable = new ColorDrawable(Color.TRANSPARENT);
+
         Glide.with(this)
                 .load(url)
                 .crossFade()
-                .placeholder(R.drawable.image_area)
+                .placeholder(transparentDrawable)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(photoView);
     }

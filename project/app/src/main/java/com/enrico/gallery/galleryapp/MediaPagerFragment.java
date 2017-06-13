@@ -1,6 +1,8 @@
 package com.enrico.gallery.galleryapp;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -257,10 +259,12 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
             });
         }
 
+        ColorDrawable transparentDrawable = new ColorDrawable(Color.TRANSPARENT);
+
         Glide.with(getActivity())
                 .load(url)
                 .crossFade()
-                .placeholder(R.drawable.image_area)
+                .placeholder(transparentDrawable)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(photoView);
     }
