@@ -116,6 +116,10 @@ public class SaveTools {
             count = getLastInt(activity) + 1;
             progressDialog = new ProgressDialog(activity);
             progressDialog.setMessage(activity.getString(R.string.saving_crop));
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            progressDialog.setIndeterminate(true);
+            progressDialog.setProgressNumberFormat(null);
+            progressDialog.setProgressPercentFormat(null);
             progressDialog.show();
         }
 

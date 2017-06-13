@@ -36,6 +36,10 @@ class ApplyWallpaper {
 
             progressDialog = new ProgressDialog(activity);
             progressDialog.setMessage(activity.getString(R.string.applying_wallpaper));
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            progressDialog.setIndeterminate(true);
+            progressDialog.setProgressNumberFormat(null);
+            progressDialog.setProgressPercentFormat(null);
             progressDialog.show();
         }
 
