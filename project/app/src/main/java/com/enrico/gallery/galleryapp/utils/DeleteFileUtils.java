@@ -1,10 +1,12 @@
 package com.enrico.gallery.galleryapp.utils;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.support.v4.provider.DocumentFile;
 import android.support.v7.app.AlertDialog;
@@ -40,7 +42,7 @@ public class DeleteFileUtils {
         }
     }
 
-    private static void deleteFileSAF(String url, Activity activity) {
+    private static void deleteFileSAF(String url, final Activity activity) {
 
         if (SDCardUtils.getSDCardUri(activity).isEmpty()) {
 
@@ -62,12 +64,17 @@ public class DeleteFileUtils {
 
             if (documentFile == null) {
 
-                Toast.makeText(activity, activity.getString(R.string.notFound), Toast.LENGTH_SHORT)
-                        .show();
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(activity, activity.getString(R.string.notFound), Toast.LENGTH_SHORT)
+                                .show();
 
-                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+                        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
 
-                rationaleDialog(activity, activity.getString(R.string.sdcard), activity.getString(R.string.sdcardContent), 2, intent);
+                        rationaleDialog(activity, activity.getString(R.string.sdcard), activity.getString(R.string.sdcardContent), 2, intent);
+                    }
+                });
 
             } else {
 
@@ -115,7 +122,7 @@ public class DeleteFileUtils {
                 .setPositiveButton(activity.getString(R.string.delete), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        deleteFile(url, activity);
+                        execute(activity, url);
                     }
                 });
 
@@ -123,6 +130,48 @@ public class DeleteFileUtils {
 
         alertDialog.show();
 
+    }
+
+    private static void execute(Activity activity, String url) {
+
+        new AsyncDelete(activity, url).execute();
+    }
+
+    private static class AsyncDelete extends AsyncTask<Void, Void, Void> {
+
+        Activity activity;
+        String url;
+        ProgressDialog progressDialog;
+
+        private AsyncDelete(Activity activity, String url) {
+            this.activity = activity;
+            this.url = url;
+        }
+
+
+        protected void onPreExecute() {
+
+            progressDialog = new ProgressDialog(activity);
+            progressDialog.setMessage(activity.getString(R.string.deleting));
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            progressDialog.setIndeterminate(true);
+            progressDialog.setProgressNumberFormat(null);
+            progressDialog.setProgressPercentFormat(null);
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            deleteFile(url, activity);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            progressDialog.dismiss();
+        }
     }
 }
 

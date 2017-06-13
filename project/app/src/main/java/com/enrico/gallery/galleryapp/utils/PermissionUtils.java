@@ -121,13 +121,19 @@ public class PermissionUtils {
 
     static void askSDCardAccess(final Activity activity) {
 
-        if (SDCardUtils.getSDCardUri(activity).isEmpty()) {
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (SDCardUtils.getSDCardUri(activity).isEmpty()) {
 
-            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+                    Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
 
-            rationaleDialog(activity, activity.getString(R.string.sdcard), activity.getString(R.string.sdcardContent), 2, intent);
+                    rationaleDialog(activity, activity.getString(R.string.sdcard), activity.getString(R.string.sdcardContent), 2, intent);
 
-        }
+                }
+            }
+        });
+
     }
 
 }
