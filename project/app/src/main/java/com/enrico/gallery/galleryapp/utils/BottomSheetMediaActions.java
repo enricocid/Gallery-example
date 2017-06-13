@@ -1,8 +1,6 @@
 package com.enrico.gallery.galleryapp.utils;
 
 import android.app.Activity;
-import android.app.WallpaperManager;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.design.widget.BottomSheetBehavior;
@@ -12,14 +10,10 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.enrico.gallery.galleryapp.R;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Locale;
 
 import static com.enrico.gallery.galleryapp.albums.HeaderRecyclerViewSection.stringContainsItemFromList;
@@ -99,28 +93,7 @@ public class BottomSheetMediaActions {
                 @Override
                 public void onClick(View v) {
 
-                    Glide
-                            .with(activity)
-                            .load(url)
-                            .asBitmap()
-                            .into(new SimpleTarget<Bitmap>() {
-                                @Override
-                                public void onResourceReady(final Bitmap resource, GlideAnimation glideAnimation) {
-                                    final WallpaperManager wallpaperManager = WallpaperManager.getInstance(activity);
-
-                                    activity.runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            try {
-
-                                                wallpaperManager.setBitmap(resource);
-                                            } catch (IOException ex) {
-                                                ex.printStackTrace();
-                                            }
-                                        }
-                                    });
-                                }
-                            });
+                    ApplyWallpaper.execute(activity, url);
                 }
             });
         }
@@ -192,4 +165,5 @@ public class BottomSheetMediaActions {
         BottomSheetMediaActions.set(activity, url, bottomView, ifAny, fileName, filePath, lastModifiedDate, fileSize, fileType, fileWidth, fileHeight);
 
     }
+
 }

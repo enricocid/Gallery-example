@@ -100,4 +100,6 @@
     <string name="hidden_sum">Manage hidden albums</string>
     <string name="hidden_message">Click on folders You want make visible again. Click OK to confirm ٩(◕‿◕｡)۶</string>
 
+    <string name="saving_crop">Saving a crop may require time. Touch outside the dialog to dismiss, the work will be done in background</string>
+    <string name="applying_wallpaper">Applying a wallpaper may require time. Touch outside the dialog to dismiss, the work will be done in background</string>
 </resources>

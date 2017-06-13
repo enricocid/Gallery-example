@@ -17,7 +17,7 @@
 
     <style name="Base.Theme" parent="App.Theme">
         <item name="colorAccent">@android:color/black</item>
-        <item name="ripple_color">@color/transBlack</item>
+        <item name="ripple_color">?attr/colorPrimaryDark</item>
         <item name="vector_color">@android:color/black</item>
     </style>
 
@@ -38,7 +38,7 @@
 
     <style name="Base.Theme.Dark" parent="App.Theme.Dark">
         <item name="colorAccent">@android:color/white</item>
-        <item name="ripple_color">@color/transWhite</item>
+        <item name="ripple_color">?attr/colorPrimaryDark</item>
         <item name="vector_color">@android:color/white</item>
     </style>
 

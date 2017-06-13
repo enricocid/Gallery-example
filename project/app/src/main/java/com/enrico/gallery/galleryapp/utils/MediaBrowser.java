@@ -2,7 +2,6 @@ package com.enrico.gallery.galleryapp.utils;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -18,15 +17,11 @@ import com.afollestad.easyvideoplayer.EasyVideoCallback;
 import com.afollestad.easyvideoplayer.EasyVideoPlayer;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.enrico.gallery.galleryapp.ImmersiveMode;
 import com.enrico.gallery.galleryapp.R;
 import com.enrico.gallery.galleryapp.settings.Preferences;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.theartofdev.edmodo.cropper.CropImage;
-
-import java.io.IOException;
 
 import static com.enrico.gallery.galleryapp.albums.HeaderRecyclerViewSection.stringContainsItemFromList;
 
@@ -167,31 +162,10 @@ public class MediaBrowser extends AppCompatActivity implements EasyVideoCallback
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
-                Uri resultUri = result.getUri();
+                final Uri resultUri = result.getUri();
 
-                Glide
-                        .with(this)
-                        .load(resultUri)
-                        .asBitmap()
-                        .into(new SimpleTarget<Bitmap>() {
-                            @Override
-                            public void onResourceReady(final Bitmap resource, GlideAnimation glideAnimation) {
+                SaveTools.saveCrop(MediaBrowser.this, resultUri, url);
 
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-
-                                        try {
-                                            SaveTools.saveImage(resource, url, MediaBrowser.this);
-
-                                        } catch (IOException ex) {
-                                            ex.printStackTrace();
-                                        }
-
-                                    }
-                                });
-                            }
-                        });
             }
         }
     }

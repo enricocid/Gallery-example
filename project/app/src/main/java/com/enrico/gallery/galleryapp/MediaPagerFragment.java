@@ -162,29 +162,7 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
             if (resultCode == RESULT_OK) {
                 Uri resultUri = result.getUri();
 
-                Glide
-                        .with(getActivity())
-                        .load(resultUri)
-                        .asBitmap()
-                        .into(new SimpleTarget<Bitmap>() {
-                            @Override
-                            public void onResourceReady(final Bitmap resource, GlideAnimation glideAnimation) {
-
-                                getActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-
-                                        try {
-                                            SaveTools.saveImage(resource, url, getActivity());
-
-                                        } catch (IOException ex) {
-                                            ex.printStackTrace();
-                                        }
-
-                                    }
-                                });
-                            }
-                        });
+                SaveTools.saveCrop(getActivity(), resultUri, url);
             }
         }
     }
