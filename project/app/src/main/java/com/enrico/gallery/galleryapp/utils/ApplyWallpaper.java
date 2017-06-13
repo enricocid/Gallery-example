@@ -13,10 +13,6 @@ import com.enrico.gallery.galleryapp.R;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by Enrico on 12/06/2017.
- */
-
 class ApplyWallpaper {
 
     static void execute(Activity activity, String url) {
