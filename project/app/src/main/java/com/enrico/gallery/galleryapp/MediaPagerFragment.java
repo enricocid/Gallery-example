@@ -1,7 +1,6 @@
 package com.enrico.gallery.galleryapp;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,14 +16,10 @@ import com.afollestad.easyvideoplayer.EasyVideoCallback;
 import com.afollestad.easyvideoplayer.EasyVideoPlayer;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.enrico.gallery.galleryapp.utils.BottomSheetMediaActions;
 import com.enrico.gallery.galleryapp.utils.SaveTools;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.theartofdev.edmodo.cropper.CropImage;
-
-import java.io.IOException;
 
 import static android.app.Activity.RESULT_OK;
 import static com.enrico.gallery.galleryapp.albums.HeaderRecyclerViewSection.stringContainsItemFromList;
@@ -41,7 +36,7 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
     Fragment fragment;
     LinearLayout bottomSheet;
 
-    private String[] VIDEO_EXTENSIONS = {"mp4", "avi", "mpg", "mkv", "webm", "flv", "gif",
+    private String[] VIDEO_EXTENSIONS = {"mp4", "avi", "mpg", "mkv", "webm", "flv",
             "wmv", "mov", "qt", "m4p", "m4v", "mpeg", "mp2",
             "m2v", "3gp", "3g2", "f4v", "f4p", "f4a", "f4b"};
 
@@ -264,7 +259,7 @@ public class MediaPagerFragment extends Fragment implements EasyVideoCallback {
 
         Glide.with(getActivity())
                 .load(url)
-                .asBitmap()
+                .crossFade()
                 .placeholder(R.drawable.image_area)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(photoView);

@@ -23,8 +23,6 @@ import com.enrico.gallery.galleryapp.settings.Preferences;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.theartofdev.edmodo.cropper.CropImage;
 
-import static com.enrico.gallery.galleryapp.albums.HeaderRecyclerViewSection.stringContainsItemFromList;
-
 public class MediaBrowser extends AppCompatActivity implements EasyVideoCallback {
 
     PhotoView photoView;
@@ -38,11 +36,7 @@ public class MediaBrowser extends AppCompatActivity implements EasyVideoCallback
     LinearLayout bottomSheet;
 
     ContextThemeWrapper contextThemeWrapper;
-
-    private String[] VIDEO_EXTENSIONS = {"mp4", "avi", "mpg", "mkv", "webm", "flv", "gif",
-            "wmv", "mov", "qt", "m4p", "m4v", "mpeg", "mp2",
-            "m2v", "3gp", "3g2", "f4v", "f4p", "f4a", "f4b"};
-
+    String type;
     private EasyVideoPlayer videoView;
 
     @Override
@@ -72,10 +66,9 @@ public class MediaBrowser extends AppCompatActivity implements EasyVideoCallback
 
         setContentView(R.layout.media_pager);
 
-        // Get intent, action and MIME type
         Intent intent = getIntent();
         String action = intent.getAction();
-        String type = intent.getType();
+        type = intent.getType();
 
         if (Intent.ACTION_VIEW.equals(action) && type != null) {
 
@@ -188,7 +181,7 @@ public class MediaBrowser extends AppCompatActivity implements EasyVideoCallback
 
     private void initMediaView() {
 
-        if (stringContainsItemFromList(url, VIDEO_EXTENSIONS)) {
+        if (url.contains(type)) {
 
             videoView.setCallback(this);
 
@@ -267,7 +260,7 @@ public class MediaBrowser extends AppCompatActivity implements EasyVideoCallback
 
         Glide.with(this)
                 .load(url)
-                .asBitmap()
+                .crossFade()
                 .placeholder(R.drawable.image_area)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(photoView);
