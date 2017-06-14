@@ -78,4 +78,6 @@
     <string name="hidden_message">Clicca le cartelle che vuoi rendere di nuovo visibili. Clicca OK per confermare ٩(◕‿◕｡)۶</string>
     <string name="saving_crop">Il salvataggio di un ritaglio può richiedere tempo. Tocca al di fuori del dialog per chiudere, il lavoro continuerà in background</string>
     <string name="applying_wallpaper">L\'applicazione di uno sfondo può richiedere tempo. Tocca al di fuori del dialog per chiudere, il lavoro continuerà in background</string>
+    <string name="deleting">Cancellazione in corso&#8230;</string>
+
 </resources>
