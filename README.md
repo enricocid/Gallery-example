@@ -14,6 +14,15 @@ Features:
 - Long click on media pager will show bottom sheet with infos and actions;
 - Crop, share, set as wallpaper or delete media;
 
+**Message for translators:**
+
+- Don't include strings marked untranslatable, i.e those with translatable="false";
+
+- Don't forget to precede apostrophes by \;
+
+Thanks!:)
+
+
 ![ScreenShot](https://raw.githubusercontent.com/enricocid/Gallery/master/art/screens4.png)
 
 
@@ -32,7 +41,11 @@ Google Play Store
 
 - Ivan, my bro, for the support: https://github.com/ivn888
 
-- @RoySchutte (https://github.com/RoySchutte), for nl translations;
+- @RoySchutte (https://github.com/RoySchutte), for Dutch translations;
+
+- Vojt?ch Ho?ánek, @vojta-horanek (https://github.com/vojta-horanek) for Czech translations
+
+- @Primokorn (https://github.com/Primokorn) for French translations
 
 - https://materialdesignicons.com/ for icons
 

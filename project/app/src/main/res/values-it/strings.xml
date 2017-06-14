@@ -12,7 +12,6 @@
     <string name="themesum">Giorno, notte o&#8230;?</string>
     <string name="light">Giorno</string>
     <string name="dark">Notte</string>
-
     <string name="red">Rosso</string>
     <string name="pink">Rosa</string>
     <string name="purple">Viola</string>
@@ -31,7 +30,6 @@
     <string name="deepOrange">Arancio scuro</string>
     <string name="brown">Marrone</string>
     <string name="blueGrey">Grigio blu</string>
-
     <string name="red_dark">Rosso notte</string>
     <string name="pink_dark">Rosa notte</string>
     <string name="purple_dark">Viola notte</string>
@@ -50,7 +48,6 @@
     <string name="deepOrange_dark">Arancio scuro notte</string>
     <string name="brown_dark">Marrone notte</string>
     <string name="blueGrey_dark">Grigio blu notte</string>
-
     <string name="size">Dimensione:&#160;</string>
     <string name="height">Altezza:&#160;</string>
     <string name="width">Larghezza:&#160;</string>
@@ -60,7 +57,6 @@
     <string name="lastMod">Ultima modifica:&#160;</string>
     <string name="videoType">Video/</string>
     <string name="imageType">Immagine/</string>
-
     <string name="notFound">File non trovato (╯°□°）╯︵ ┻━┻. Ho dimenticato il percorso della SD Card!</string>
     <string name="uSure">Sicuro? (Ծ‸ Ծ)</string>
     <string name="uSureContent">Sicuro vuoi cancellare&#160;</string>
@@ -73,16 +69,13 @@
     <string name="writeReadContent">Questo permesso è necessario se vuoi vedere i tuoi &amp;#$# selfie qui ◔_◔</string>
     <string name="saved">&#160;salvata (｡◕‿◕｡)</string>
     <string name="shareWith">Condividi usando&#8230;</string>
-
     <string name="setAs">Imposta come wallpaper</string>
-
     <string name="uSureHide">Sicuro? (ಥ_ʖಥ)</string>
     <string name="uSureHideContent">Sicuro vuoi nascondere&#160;</string>
     <string name="hide">Nascondi</string>
     <string name="hidden_title">Album nascosti</string>
     <string name="hidden_sum">Gestisci gli album nascosti</string>
     <string name="hidden_message">Clicca le cartelle che vuoi rendere di nuovo visibili. Clicca OK per confermare ٩(◕‿◕｡)۶</string>
-
     <string name="saving_crop">Il salvataggio di un ritaglio può richiedere tempo. Tocca al di fuori del dialog per chiudere, il lavoro continuerà in background</string>
     <string name="applying_wallpaper">L\'applicazione di uno sfondo può richiedere tempo. Tocca al di fuori del dialog per chiudere, il lavoro continuerà in background</string>
 </resources>

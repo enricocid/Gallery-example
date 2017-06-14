@@ -1,18 +1,15 @@
 <resources>
     <string name="app_name">Galerij</string>
     <string name="settings">Opties</string>
-
     <string name="pref_grid_title">Aantal kolommen</string>
     <string name="gridsum">Wijzig het aantal album kolommen</string>
     <string name="two">2 kolommen</string>
     <string name="three">3 kolommen</string>
     <string name="four">4 kolommen</string>
-
     <string name="pref_theme_title">App thema</string>
     <string name="themesum">Ochtend, nacht of&#8230;?</string>
     <string name="light">Licht</string>
     <string name="dark">Donker</string>
-
     <string name="red">Rood</string>
     <string name="pink">Roze</string>
     <string name="purple">Paars</string>
@@ -49,23 +46,18 @@
     <string name="deepOrange_dark">Diepdonkeroranje</string>
     <string name="brown_dark">Donkerbruin</string>
     <string name="blueGrey_dark">Donkerblauwgrijs</string>
-
     <string name="notFound">Bestand niet gevonden (╯°□°）╯︵ ┻━┻. Ik ben het SD-kaart pad vergeten!</string>
     <string name="uSure">Zeker weten? (Ծ‸ Ծ)</string>
     <string name="uSureContent">Weet je zeker dat je&#160; wilt verwijderen?</string>
     <string name="questionMark">&#160;?</string>
     <string name="delete">Verwijderen</string>
-
     <string name="sdcard">SD-kaart toegang</string>
     <string name="sdcardContent">Je apparaat draait Android 5.0+. Om betstanden op de externe opslag te bewerken, gelieve het externe SD-kaart pad op te geven in de volgende stap ᕙ༼ຈل͜ຈ༽ᕗ</string>
     <string name="success">SD-kaart pad succesvol ingesteld. Je kunt nu bestanden verwijderen (⌐■_■)</string>
     <string name="cameraContent">Deze permissie is vereist als je de camera wilt openen ಠ_ಠ</string>
     <string name="writeReadContent">Deze permissie is vereist als je hier jouw &amp;#$# selfie wilt zien ◔_◔</string>
-
     <string name="saved">&#160;opgeslagen (｡◕‿◕｡)</string>
-
     <string name="shareWith">Delen via&#8230;</string>
-
     <string name="size">Grootte:&#160;</string>
     <string name="height">Hoogte:&#160;</string>
     <string name="width">Breedte:&#160;</string>
@@ -73,12 +65,9 @@
     <string name="type">Bestandstype:&#160;</string>
     <string name="path">Pad:&#160;</string>
     <string name="lastMod">Laatst aangepast:&#160;</string>
-
     <string name="videoType">Video/</string>
     <string name="imageType">Afbeelding/</string>
-
     <string name="setAs">Instellen als achtergrond</string>
-
     <string name="uSureHide">Zeker weten? (ಥ_ʖಥ)</string>
     <string name="uSureHideContent">Weet je zeker dat je&#160; wilt verbergen?</string>
     <string name="hide">Verbergen</string>
