@@ -18,7 +18,10 @@ Features:
 
 - Don't include strings marked untranslatable, i.e those with translatable="false";
 
-- Don't forget to precede apostrophes by \;
+- Don't forget to precede apostrophes by 
+```
+\
+```
 
 Thanks!:)
 
