@@ -1,0 +1,105 @@
+<resources>
+    <string name="app_name">Gallery</string>
+    <string name="settings">Options</string>
+
+    <string name="pref_grid_title">Nombre de colonnes</string>
+    <string name="gridsum">Changer le nombre de colonnes des albums</string>
+    <string name="pref_grid" translatable="false">pref_grid</string>
+    <string name="pref_grid_list" translatable="false">pref_grid_list</string>
+    <string name="two">2 colonnes</string>
+    <string name="three">3 colonnes</string>
+    <string name="four">4 colonnes</string>
+
+    <string name="pref_theme_title">Thème</string>
+    <string name="themesum">Matin, nuit ou&#8230;?</string>
+    <string name="pref_theme" translatable="false">pref_theme</string>
+    <string name="pref_theme_list" translatable="false">pref_theme_list</string>
+    <string name="light">Clair</string>
+    <string name="dark">Sombre</string>
+
+    <string name="red">Rouge</string>
+    <string name="pink">Rose</string>
+    <string name="purple">Violet</string>
+    <string name="deepPurple">Violet foncé</string>
+    <string name="indigo">Indigo</string>
+    <string name="blue">Bleu</string>
+    <string name="lightBlue">Bleu clair</string>
+    <string name="cyan">Cyan</string>
+    <string name="teal">Turquoise</string>
+    <string name="green">Vert</string>
+    <string name="lightGreen">Vert clair</string>
+    <string name="lime">Citron vert</string>
+    <string name="yellow">Jaune</string>
+    <string name="amber">Ambre</string>
+    <string name="orange">Orange</string>
+    <string name="deepOrange">Orange foncé</string>
+    <string name="brown">Marron</string>
+    <string name="blueGrey">Bleu gris</string>
+    <string name="red_dark">Rouge nuit</string>
+    <string name="pink_dark">Rose nuit</string>
+    <string name="purple_dark">Violet nuit</string>
+    <string name="deepPurple_dark">Violet foncé nuit</string>
+    <string name="indigo_dark">Indigo nuit</string>
+    <string name="blue_dark">Bleu nuit</string>
+    <string name="lightBlue_dark">Bleu clair nuit</string>
+    <string name="cyan_dark">Cyan nuit</string>
+    <string name="teal_dark">Turquoise nuit</string>
+    <string name="green_dark">Vert nuit</string>
+    <string name="lightGreen_dark">Vert clair nuit</string>
+    <string name="lime_dark">Citron vert nuit</string>
+    <string name="yellow_dark">Jaune nuit</string>
+    <string name="amber_dark">Ambre nuit</string>
+    <string name="orange_dark">Orange nuit</string>
+    <string name="deepOrange_dark">Orange foncé nuit</string>
+    <string name="brown_dark">Marron nuit</string>
+    <string name="blueGrey_dark">Bleu gris nuit</string>
+
+    <string name="notFound">Fichier non trouvé not found (╯°□°）╯︵ ┻━┻. J\'ai oublié l'emplacement SD Card !</string>
+    <string name="uSure">Vous êtes sûr•e ? (Ծ‸ Ծ)</string>
+    <string name="uSureContent">Vous êtes sûr•e de vouloir supprimer&#160;</string>
+    <string name="questionMark">&#160;?</string>
+    <string name="delete">Supprimer</string>
+
+    <string name="sdcard">Accès SD Card</string>
+    <string name="sdcardContent">Votre appareil est basé sur Android 5.0+, pour modifier des fichiers sur la SD Card exrerne, veuillez indiquer son emplacement lors de la prochaine étape ᕙ༼ຈل͜ຈ༽ᕗ</string>
+    <string name="success">Emplacement SD Card défini avec succès. Maintenant vous pouvez supprimer des fichiers (⌐■_■)</string>
+    <string name="cameraContent">Cette permission est requis si vous voulez ouvrir l\'appareil photo ಠ_ಠ</string>
+    <string name="rationale_camera" translatable="false">(ಥ﹏ಥ)</string>
+    <string name="rationale_read" translatable="false">щ（ﾟДﾟщ)</string>
+    <string name="writeReadContent">Cette permission est requis si vous voulez voir vos selfies &amp;#$# ici ◔_◔</string>
+
+    <string name="saved">&#160;saved (｡◕‿◕｡)</string>
+
+    <string name="shareWith">Partager via&#8230;</string>
+
+    <string name="size">Taille :&#160;</string>
+    <string name="height">Hauteur :&#160;</string>
+    <string name="width">Largeur :&#160;</string>
+    <string name="name">Nom fichier :&#160;</string>
+    <string name="type">Type fichier :&#160;</string>
+    <string name="path">Emplacement :&#160;</string>
+    <string name="lastMod">Dernière modification :&#160;</string>
+
+    <string name="videoType">Vidéo/</string>
+    <string name="imageType">Image/</string>
+
+    <string name="B" translatable="false">B</string>
+    <string name="KB" translatable="false">KB&#160;</string>
+    <string name="MB" translatable="false">MB&#160;</string>
+    <string name="GB" translatable="false">GB&#160;</string>
+
+    <string name="parenthesisR" translatable="false">)</string>
+    <string name="parenthesisL" translatable="false">&#160;(</string>
+
+    <string name="setAs">Définir comme fond d'écran</string>
+
+    <string name="uSureHide">Vous êtes sûr•e ? (ಥ_ʖಥ)</string>
+    <string name="uSureHideContent">Vous êtes sûr•e de vouloir cacher&#160;</string>
+    <string name="hide">Cacher</string>
+    <string name="hidden_title">Albums cachés</string>
+    <string name="hidden_sum">Gérer les albums cachés</string>
+    <string name="hidden_message">Appuyez sur le•s dossier•s que vous souhaitez rendre à nouveau visible•s. OK pour valider ٩(◕‿◕｡)۶</string>
+
+    <string name="saving_crop">Enregistrer un recadrage peut demander du temps. Appuyez en dehors du message pour annuler, la tâche sera effectuée en arrière-plan</string>
+    <string name="applying_wallpaper">Appliquer un fond d\'écran peut demander du temps. Appuyez en dehors du message pour annuler, la tâche sera effectuée en arrière-plan</string>
+</resources>
