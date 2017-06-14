@@ -1,0 +1,171 @@
+<resources>
+
+    <string name="app_name">Galerie</string>
+
+    <string name="settings">Možnosti</string>
+
+
+    <string name="pref_grid_title">Počet sloupců</string>
+
+    <string name="gridsum">Změňte počet sloupců v albu</string>
+
+
+    <string name="two">2 sloupce</string>
+
+    <string name="three">3 sloupce</string>
+
+    <string name="four">4 sloupce</string>
+
+
+    <string name="pref_theme_title">Vzhled aplikace</string>
+
+    <string name="themesum">Ráno, noc nebo&#8230;?</string>
+
+  
+    <string name="light">Světlý</string>
+
+    <string name="dark">Tmavý</string>
+
+
+    <string name="red">Červený</string>
+
+    <string name="pink">Růžový</string>
+
+    <string name="purple">Fialový</string>
+
+    <string name="deepPurple">Tmavě fialová</string>
+
+    <string name="indigo">Indigová</string>
+
+    <string name="blue">Modrá</string>
+
+    <string name="lightBlue">Světle modrá</string>
+
+    <string name="cyan">Tyrkysová</string>
+
+    <string name="teal">Tealová</string>
+
+    <string name="green">Zelená</string>
+
+    <string name="lightGreen">Světle zelená</string>
+
+    <string name="lime">Limetková</string>
+
+    <string name="yellow">Žlutá</string>
+
+    <string name="amber">Jantarová</string>
+
+    <string name="orange">Oranžová</string>
+
+    <string name="deepOrange">Tmavě oranžová</string>
+
+    <string name="brown">Hnědá</string>
+
+    <string name="blueGrey">Šedě modrá</string>
+
+    <string name="red_dark">Červená noc</string>
+
+    <string name="pink_dark">Růžová noc</string>
+
+    <string name="purple_dark">Fialová noc</string>
+
+    <string name="deepPurple_dark">Tmavě fialová noc</string>
+
+    <string name="indigo_dark">Indigová noc</string>
+
+    <string name="blue_dark">Modrá noc</string>
+
+    <string name="lightBlue_dark">Světle modrá noc</string>
+
+    <string name="cyan_dark">Tyrkysová noc</string>
+
+    <string name="teal_dark">Tealová noc</string>
+
+    <string name="green_dark">Zelená noc</string>
+
+    <string name="lightGreen_dark">Světle zelená noc</string>
+
+    <string name="lime_dark">Limetková noc</string>
+
+    <string name="yellow_dark">Žlutá noc</string>
+
+    <string name="amber_dark">Jantarová noc</string>
+
+    <string name="orange_dark">Oranžová noc</string>
+
+    <string name="deepOrange_dark">Tmavě oranžová noc</string>
+
+    <string name="brown_dark">Hnědá noc</string>
+
+    <string name="blueGrey_dark">Šedě modrá noc</string>
+
+
+    <string name="notFound">Soubor nenalezen (╯°□°）╯︵ ┻━┻. Zapomněl jsem cestu k SD kartě!</string>
+
+    <string name="uSure">Jsi si jistej? (Ծ‸ Ծ)</string>
+
+    <string name="uSureContent">Vážně chceš smazat&#160;</string>
+
+    <string name="questionMark">&#160;?</string>
+
+    <string name="delete">Smazat</string>
+
+
+    <string name="sdcard">Přístup k SD kartě</string>
+
+    <string name="sdcardContent">Vaše zařízení běží na androidu 5.0+, aby jste mohly editovat soubory na externí SD kartě, řekněte mi prosím cestu k vaší externí SD kartě v dalším kroku ᕙ༼ຈل͜ຈ༽ᕗ</string>
+
+    <string name="success">Úspěch! Podařilo se získat cestu k SD kartě, nyní můžete mazat soubory (⌐■_■)</string>
+
+    <string name="cameraContent">Toto oprávnění je potřeba aby jste mohli používat kameru ಠ_ಠ</string>
+
+    <string name="writeReadContent">Toto oprávnění je potřeba pokud zde checete vidět vaší selfie ◔_◔</string>
+
+
+    <string name="saved">Uloženo: &#160; (｡◕‿◕｡)</string>
+
+
+    <string name="shareWith">Sdílet pomocí &#8230;</string>
+
+
+    <string name="size">Velikost:&#160;</string>
+
+    <string name="height">Výška:&#160;</string>
+
+    <string name="width">Šířka:&#160;</string>
+
+    <string name="name">Název souboru:&#160;</string>
+
+    <string name="type">Typ souboru:&#160;</string>
+
+    <string name="path">Cesta:&#160;</string>
+
+    <string name="lastMod">Naposledy upraveno:&#160;</string>
+
+
+    <string name="videoType">Video/</string>
+
+    <string name="imageType">Obrázek/</string>
+
+    <string name="setAs">Nastavit jako tapetu</string>
+
+
+    <string name="uSureHide">Seš si jist? (ಥ_ʖಥ)</string>
+
+    <string name="uSureHideContent">Vážně chceš skrýt &#160;</string>
+
+    <string name="hide">Skrýt</string>
+
+    <string name="hidden_title">Skrytá alba</string>
+
+    <string name="hidden_sum">Spravovat skrytá alba</string>
+
+    <string name="hidden_message">Vyber složky které chceš udělat znova viditelnými. Potom stiskni OK pro potvrzení ٩(◕‿◕｡)۶</string>
+
+
+    <string name="saving_crop">Ukládání ořezu nejspíš bude potřebovat čas. Pokud chcete aby práce byla provedena na pozadí, dotkněte se mimo dialog.</string>
+
+    <string name="applying_wallpaper">Nastavování pozadí nejspíš bude potřebovat čas. Pokud chcete aby práce byla provedena na pozadí, dotkněte se mimo dialog</string>
+
+</resources>
+
