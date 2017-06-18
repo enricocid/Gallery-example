@@ -1,4 +1,4 @@
-# Gallery
+# Gallery example
 This is how I want the gallery app ... simple.
 
 
@@ -32,13 +32,8 @@ Thanks!:)
 You can download the latest (2.1) signed APK from this repo here: https://github.com/enricocid/Gallery/raw/master/project/app/app-release.apk
 
 
-The app is available on:
 
-Google Play Store
 
-<a href="https://play.google.com/store/apps/details?id=com.enrico.gallery.galleryapp">
-  <img alt="Get it on Google Play"       src="https://raw.githubusercontent.com/enricocid/Storage-USB/master/art/gplay.png" />
-</a>
 
 **Credits:**
 
@@ -46,7 +41,7 @@ Google Play Store
 
 - @RoySchutte (https://github.com/RoySchutte), for Dutch translations;
 
-- Vojt?ch Ho?ánek, @vojta-horanek (https://github.com/vojta-horanek) for Czech translations
+- Vojt?ch Ho?Ã¡nek, @vojta-horanek (https://github.com/vojta-horanek) for Czech translations
 
 - @Primokorn (https://github.com/Primokorn) for French translations
 
