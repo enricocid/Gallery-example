@@ -21,8 +21,6 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class AlbumsUtils {
 
-    private static ArrayList<Albums> allAlbums = new ArrayList<>();
-
     static ArrayList<Albums> getAllAlbums(Activity activity) {
 
         Uri externalImagesUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
@@ -33,9 +31,9 @@ public class AlbumsUtils {
         String imagePath = MediaStore.Images.ImageColumns.DISPLAY_NAME;
         String videoData = MediaStore.Video.VideoColumns.DATA;
         String videoPath = MediaStore.Video.VideoColumns.DISPLAY_NAME;
-
-        allAlbums.clear();
-
+        
+        ArrayList<Albums> allAlbums = new ArrayList<>();
+        
         Cursor cursor;
         int column_index_data;
 
